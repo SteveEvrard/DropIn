@@ -6,7 +6,7 @@ class GetLocationManager {
     static let shared = GetLocationManager()
     private init() {} // Private initializer for singleton
 
-    private static let locationsKey = "savedLocations"
+    static let locationsKey = "savedLocations"
 
     func saveLocation(latitude: Double, longitude: Double, name: String, cityState: String? = nil) {
         let locationCoordinates = CLLocation(latitude: latitude, longitude: longitude)
@@ -26,8 +26,10 @@ class GetLocationManager {
     func getLocations() -> [Location]? {
         if let data = UserDefaults.standard.data(forKey: Self.locationsKey),
            let locations = try? JSONDecoder().decode([Location].self, from: data) {
+            print("GET LOCATIONS: \(locations)")
             return locations
         } else {
+            print("GET LOCATIONS: NONE")
             return nil
         }
     }
@@ -37,6 +39,7 @@ class GetLocationManager {
     }
 
     func updateCityStateForLocations(completion: @escaping ([Location]) -> Void) {
+        print("updateCityStateForLocations")
         guard var locations = getLocations() else { return }
         let geocoder = CLGeocoder()
         let group = DispatchGroup()
@@ -57,7 +60,7 @@ class GetLocationManager {
         }
 
         group.notify(queue: .main) {
-            Self.saveLocations(locations)
+//            Self.saveLocations(locations)
             completion(locations)
         }
     }

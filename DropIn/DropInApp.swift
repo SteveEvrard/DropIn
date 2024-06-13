@@ -1,24 +1,18 @@
-//
-//  DropInApp.swift
-//  DropIn
-//
-//  Created by Stephen Evrard on 5/9/24.
-//
 import SwiftUI
 import Firebase
 import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-    return true
-  }
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
 
-  @available(iOS 9.0, *)
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    return GIDSignIn.sharedInstance.handle(url)
-  }
+    @available(iOS 9.0, *)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
 }
 
 @main
@@ -35,7 +29,27 @@ struct DropInApp: App {
                 .onAppear {
                     GoogleSignInManager.shared.appState = appState
                     AppleSignInManager.shared.appState = appState
+//                    if let userId = Auth.auth().currentUser?.uid {
+//                        userState.fetchUser(userId: userId) {
+//                            loadSavedLocations()
+//                        }
+//                    }
                 }
+        }
+    }
+
+    private func loadSavedLocations() {
+        print("LOAD MAIN APP")
+        var didLoad = false
+        if let savedLocations = GetLocationManager.shared.getLocations() {
+            print("savedLocations: \(savedLocations)")
+            for location in savedLocations {
+                didLoad = userState.addLocation(location: location)
+            }
+        }
+        if didLoad {
+            print("DID")
+            GetLocationManager.shared.clearLocations()
         }
     }
 }

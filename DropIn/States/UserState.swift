@@ -27,6 +27,7 @@ class UserState: ObservableObject {
                 }
             }, receiveValue: { user in
                 self.user = user
+                self.uploadSavedLocations()
             })
             .store(in: &cancellables)
     }
@@ -58,14 +59,15 @@ class UserState: ObservableObject {
             .store(in: &cancellables)
     }
 
-    func addLocation(location: Location) {
+    func addLocation(location: Location) -> Bool {
         print("initial locations count: \(self.user?.locations.count ?? 0)")
-        guard var user = user else { return }
+        guard var user = user else { return false }
         user.locations.append(location)
         saveUser(user: user)
         self.user = user
         print("Added location: \(location)")
         print("Current locations count: \(self.user?.locations.count ?? 0)")
+        return true
     }
 
     func removeLocation(locationId: UUID) {
@@ -73,5 +75,22 @@ class UserState: ObservableObject {
         user.locations.removeAll { $0.id == locationId }
         saveUser(user: user)
         self.user = user
+    }
+
+    func uploadSavedLocations() {
+        print("GetLocationManager.shared.getLocations()", GetLocationManager.shared.getLocations())
+        guard let locations = GetLocationManager.shared.getLocations() else { return }
+
+        for location in locations {
+            addLocation(location: location)
+        }
+        
+        // Clear local storage after uploading
+        UserDefaults.standard.removeObject(forKey: "savedLocations")
+    }
+
+    func checkAndUpdateFromLocalStorage() {
+        // Method to check local storage and update state if necessary
+        self.uploadSavedLocations()
     }
 }

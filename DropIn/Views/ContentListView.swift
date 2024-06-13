@@ -55,12 +55,7 @@ struct ContentListView: View {
                 .padding()
             }
         }
-        .padding(.top, -8) // Adjust top padding to account for header
-        .onAppear {
-            if let locations = userState.user?.locations {
-                print("onAppear locations count: \(locations.count)")
-            }
-        }
+        .padding(.top, -8)
         .onChange(of: userState.user?.locations) { _, newLocations in
             if let locations = newLocations {
                 print("CHANGED: \(locations.count) locations")
@@ -82,7 +77,7 @@ struct ContentListView: View {
         let groupedDict = Dictionary(grouping: locations) { (location: Location) in
             Calendar.current.startOfDay(for: location.date)
         }
-        return groupedDict.sorted { $0.key < $1.key }
+        return groupedDict.sorted { $0.key > $1.key }
     }
 
     private func openInMaps(address: String) {
