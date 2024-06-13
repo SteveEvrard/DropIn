@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730E6A502C11FE7C009D0DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */; };
+		734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E652C120C73003B96D1 /* FirebaseAuth */; };
+		734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E672C120C73003B96D1 /* FirebaseFirestore */; };
+		734A9E6A2C122AAE003B96D1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E692C122AAE003B96D1 /* SignInView.swift */; };
+		734A9E6C2C122AF5003B96D1 /* SignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */; };
+		734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */; };
+		734A9E712C122C07003B96D1 /* AppleSignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E702C122C07003B96D1 /* AppleSignInButtonView.swift */; };
+		734A9E732C122C1A003B96D1 /* EmailSignInButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E722C122C1A003B96D1 /* EmailSignInButtonView.swift */; };
+		734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E742C122C35003B96D1 /* AppleSignInManager.swift */; };
+		734A9E792C122C87003B96D1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E782C122C87003B96D1 /* Utilities.swift */; };
+		734A9E7B2C123CB3003B96D1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E7A2C123CB3003B96D1 /* Color.swift */; };
+		734A9E7E2C12601B003B96D1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E7D2C12601B003B96D1 /* GoogleSignIn */; };
+		734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */; };
+		734A9E822C134340003B96D1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E812C134340003B96D1 /* AppState.swift */; };
 		737148272BED72DB00676E63 /* DropInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148262BED72DB00676E63 /* DropInApp.swift */; };
 		737148292BED72DB00676E63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148282BED72DB00676E63 /* ContentView.swift */; };
 		7371482B2BED72DD00676E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7371482A2BED72DD00676E63 /* Assets.xcassets */; };
@@ -14,6 +28,18 @@
 		737148392BED72DD00676E63 /* DropInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148382BED72DD00676E63 /* DropInTests.swift */; };
 		737148432BED72DD00676E63 /* DropInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148422BED72DD00676E63 /* DropInUITests.swift */; };
 		737148452BED72DD00676E63 /* DropInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */; };
+		737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148532BED74A800676E63 /* GetLocationShortcut.swift */; };
+		73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */; };
+		73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA32BF3BF7400B11F42 /* GetLocationManager.swift */; };
+		73CEEEA62C01344400B11F42 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA52C01344400B11F42 /* Location.swift */; };
+		73F3180C2C1349CA00583C4D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3180B2C1349C900583C4D /* AuthManager.swift */; };
+		73F3180E2C134B9500583C4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3180D2C134B9500583C4D /* MainView.swift */; };
+		73F318142C1351A100583C4D /* GetLocationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318132C1351A100583C4D /* GetLocationIntent.swift */; };
+		73F318172C19EF9500583C4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318162C19EF9500583C4D /* User.swift */; };
+		73F3181A2C19F01A00583C4D /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318192C19F01A00583C4D /* UserState.swift */; };
+		73F3181C2C19F10000583C4D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181B2C19F10000583C4D /* UserManager.swift */; };
+		73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181D2C1A0C8C00583C4D /* HeaderView.swift */; };
+		73F318202C1A0CB800583C4D /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181F2C1A0CB800583C4D /* ContentListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +59,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		737148672BED828700676E63 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
+		734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtonView.swift; sourceTree = "<group>"; };
+		734A9E702C122C07003B96D1 /* AppleSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInButtonView.swift; sourceTree = "<group>"; };
+		734A9E722C122C1A003B96D1 /* EmailSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInButtonView.swift; sourceTree = "<group>"; };
+		734A9E742C122C35003B96D1 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
+		734A9E782C122C87003B96D1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		734A9E7A2C123CB3003B96D1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
+		734A9E812C134340003B96D1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		737148232BED72DB00676E63 /* DropIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737148262BED72DB00676E63 /* DropInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInApp.swift; sourceTree = "<group>"; };
 		737148282BED72DB00676E63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +95,19 @@
 		7371483E2BED72DD00676E63 /* DropInUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DropInUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		737148422BED72DD00676E63 /* DropInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUITests.swift; sourceTree = "<group>"; };
 		737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		737148532BED74A800676E63 /* GetLocationShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationShortcut.swift; sourceTree = "<group>"; };
+		737148552BED7AEA00676E63 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
+		73CEEEA32BF3BF7400B11F42 /* GetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationManager.swift; sourceTree = "<group>"; };
+		73CEEEA52C01344400B11F42 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		73F3180B2C1349C900583C4D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		73F3180D2C134B9500583C4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		73F318132C1351A100583C4D /* GetLocationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GetLocationIntent.swift; path = DropIn/GetLocationIntent.swift; sourceTree = SOURCE_ROOT; };
+		73F318162C19EF9500583C4D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73F318192C19F01A00583C4D /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		73F3181B2C19F10000583C4D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		73F3181D2C1A0C8C00583C4D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		73F3181F2C1A0CB800583C4D /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */,
+				734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */,
+				734A9E7E2C12601B003B96D1 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +138,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		734A9E642C120C73003B96D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		734A9E6D2C122B10003B96D1 /* SignInButtons */ = {
+			isa = PBXGroup;
+			children = (
+				734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */,
+				734A9E702C122C07003B96D1 /* AppleSignInButtonView.swift */,
+				734A9E722C122C1A003B96D1 /* EmailSignInButtonView.swift */,
+			);
+			path = SignInButtons;
+			sourceTree = "<group>";
+		};
+		734A9E762C122C5E003B96D1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */,
+				73CEEEA32BF3BF7400B11F42 /* GetLocationManager.swift */,
+				734A9E742C122C35003B96D1 /* AppleSignInManager.swift */,
+				734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */,
+				73F3180B2C1349C900583C4D /* AuthManager.swift */,
+				73F3181B2C19F10000583C4D /* UserManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		734A9E772C122C6F003B96D1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				734A9E7A2C123CB3003B96D1 /* Color.swift */,
+				734A9E782C122C87003B96D1 /* Utilities.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		7371481A2BED72DB00676E63 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +184,7 @@
 				737148372BED72DD00676E63 /* DropInTests */,
 				737148412BED72DD00676E63 /* DropInUITests */,
 				737148242BED72DB00676E63 /* Products */,
+				734A9E642C120C73003B96D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,11 +201,19 @@
 		737148252BED72DB00676E63 /* DropIn */ = {
 			isa = PBXGroup;
 			children = (
+				737148552BED7AEA00676E63 /* Info.plist */,
+				730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */,
 				737148262BED72DB00676E63 /* DropInApp.swift */,
-				737148282BED72DB00676E63 /* ContentView.swift */,
 				7371482A2BED72DD00676E63 /* Assets.xcassets */,
-				7371482C2BED72DD00676E63 /* DropIn.entitlements */,
 				7371482D2BED72DD00676E63 /* Preview Content */,
+				7371482C2BED72DD00676E63 /* DropIn.entitlements */,
+				73F318182C19F00E00583C4D /* States */,
+				73F318152C19EF7C00583C4D /* Models */,
+				73F318112C13509600583C4D /* Views */,
+				73F3180F2C13507F00583C4D /* GetLocation */,
+				734A9E762C122C5E003B96D1 /* Managers */,
+				734A9E6D2C122B10003B96D1 /* SignInButtons */,
+				734A9E772C122C6F003B96D1 /* Utils */,
 			);
 			path = DropIn;
 			sourceTree = "<group>";
@@ -129,6 +243,54 @@
 			path = DropInUITests;
 			sourceTree = "<group>";
 		};
+		73F3180F2C13507F00583C4D /* GetLocation */ = {
+			isa = PBXGroup;
+			children = (
+				73F318132C1351A100583C4D /* GetLocationIntent.swift */,
+				737148532BED74A800676E63 /* GetLocationShortcut.swift */,
+			);
+			path = GetLocation;
+			sourceTree = "<group>";
+		};
+		73F318112C13509600583C4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				73F318122C1350B200583C4D /* SignIn */,
+				73F3180D2C134B9500583C4D /* MainView.swift */,
+				737148282BED72DB00676E63 /* ContentView.swift */,
+				73F3181D2C1A0C8C00583C4D /* HeaderView.swift */,
+				73F3181F2C1A0CB800583C4D /* ContentListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		73F318122C1350B200583C4D /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				734A9E692C122AAE003B96D1 /* SignInView.swift */,
+				734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		73F318152C19EF7C00583C4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73CEEEA52C01344400B11F42 /* Location.swift */,
+				73F318162C19EF9500583C4D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		73F318182C19F00E00583C4D /* States */ = {
+			isa = PBXGroup;
+			children = (
+				734A9E812C134340003B96D1 /* AppState.swift */,
+				73F318192C19F01A00583C4D /* UserState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,12 +301,18 @@
 				7371481F2BED72DB00676E63 /* Sources */,
 				737148202BED72DB00676E63 /* Frameworks */,
 				737148212BED72DB00676E63 /* Resources */,
+				737148672BED828700676E63 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DropIn;
+			packageProductDependencies = (
+				734A9E652C120C73003B96D1 /* FirebaseAuth */,
+				734A9E672C120C73003B96D1 /* FirebaseFirestore */,
+				734A9E7D2C12601B003B96D1 /* GoogleSignIn */,
+			);
 			productName = DropIn;
 			productReference = 737148232BED72DB00676E63 /* DropIn.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +385,10 @@
 				Base,
 			);
 			mainGroup = 7371481A2BED72DB00676E63;
+			packageReferences = (
+				730E6A512C120128009D0DE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				734A9E7C2C125FA9003B96D1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = 737148242BED72DB00676E63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730E6A502C11FE7C009D0DE3 /* GoogleService-Info.plist in Resources */,
 				7371482F2BED72DD00676E63 /* Preview Assets.xcassets in Resources */,
 				7371482B2BED72DD00676E63 /* Assets.xcassets in Resources */,
 			);
@@ -259,7 +432,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				734A9E732C122C1A003B96D1 /* EmailSignInButtonView.swift in Sources */,
+				73F3180C2C1349CA00583C4D /* AuthManager.swift in Sources */,
+				73F318202C1A0CB800583C4D /* ContentListView.swift in Sources */,
+				734A9E6A2C122AAE003B96D1 /* SignInView.swift in Sources */,
+				737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */,
+				734A9E792C122C87003B96D1 /* Utilities.swift in Sources */,
+				73F3180E2C134B9500583C4D /* MainView.swift in Sources */,
+				734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */,
+				734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */,
+				73F318172C19EF9500583C4D /* User.swift in Sources */,
+				734A9E822C134340003B96D1 /* AppState.swift in Sources */,
+				734A9E712C122C07003B96D1 /* AppleSignInButtonView.swift in Sources */,
+				73CEEEA62C01344400B11F42 /* Location.swift in Sources */,
+				73F3181A2C19F01A00583C4D /* UserState.swift in Sources */,
+				734A9E6C2C122AF5003B96D1 /* SignInButtonView.swift in Sources */,
+				734A9E7B2C123CB3003B96D1 /* Color.swift in Sources */,
+				73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */,
+				73F318142C1351A100583C4D /* GetLocationIntent.swift in Sources */,
+				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
+				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
+				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,
+				73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */,
 				737148272BED72DB00676E63 /* DropInApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +619,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DropIn/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to save and display your current location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save and display your current location.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -432,8 +631,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -442,7 +640,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = studio.omicron.DropIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,6 +661,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DropIn/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to save and display your current location.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save and display your current location.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -470,8 +673,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -480,7 +682,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = studio.omicron.DropIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -617,6 +820,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		730E6A512C120128009D0DE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.27.0;
+			};
+		};
+		734A9E7C2C125FA9003B96D1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		734A9E652C120C73003B96D1 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 730E6A512C120128009D0DE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		734A9E672C120C73003B96D1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 730E6A512C120128009D0DE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		734A9E7D2C12601B003B96D1 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 734A9E7C2C125FA9003B96D1 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7371481B2BED72DB00676E63 /* Project object */;
 }
