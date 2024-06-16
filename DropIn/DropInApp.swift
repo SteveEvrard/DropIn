@@ -29,27 +29,7 @@ struct DropInApp: App {
                 .onAppear {
                     GoogleSignInManager.shared.appState = appState
                     AppleSignInManager.shared.appState = appState
-//                    if let userId = Auth.auth().currentUser?.uid {
-//                        userState.fetchUser(userId: userId) {
-//                            loadSavedLocations()
-//                        }
-//                    }
                 }
-        }
-    }
-
-    private func loadSavedLocations() {
-        print("LOAD MAIN APP")
-        var didLoad = false
-        if let savedLocations = GetLocationManager.shared.getLocations() {
-            print("savedLocations: \(savedLocations)")
-            for location in savedLocations {
-                didLoad = userState.addLocation(location: location)
-            }
-        }
-        if didLoad {
-            print("DID")
-            GetLocationManager.shared.clearLocations()
         }
     }
 }

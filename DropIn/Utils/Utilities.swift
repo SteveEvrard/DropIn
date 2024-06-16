@@ -33,6 +33,13 @@ func randomNonceString(length: Int = 32) -> String {
     return result
 }
 
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    return formatter
+}()
+
+
 @available(iOS 13, *)
 func sha256(_ input: String) -> String {
     let inputData = Data(input.utf8)

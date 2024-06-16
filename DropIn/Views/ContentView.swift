@@ -17,7 +17,7 @@ struct ContentView: View {
         .background(Color("BackgroundColor"))
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active {
-                loadSavedLocations()
+                GetLocationManager.shared.loadSavedLocalLocations()
             }
         }
     }

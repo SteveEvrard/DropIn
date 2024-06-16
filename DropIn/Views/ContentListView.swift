@@ -13,26 +13,8 @@ struct ContentListView: View {
                                 .foregroundColor(Color("PrimaryTextColor"))
                                 .padding(.top)) {
                         ForEach(locations) { location in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(location.address ?? "Unknown Address")
-                                        .foregroundColor(Color("PrimaryTextColor"))
-                                    if let cityState = location.cityState {
-                                        Text(cityState)
-                                            .font(.subheadline)
-                                            .foregroundColor(Color("SecondaryTextColor"))
-                                    }
-                                }
-                                Spacer()
-                                Button(action: {
-                                    openInMaps(address: location.address ?? "")
-                                }) {
-                                    Image(systemName: "map.fill")
-                                        .foregroundColor(Color("ButtonColor"))
-                                }
-                            }
-                            .padding(.vertical, 5)
-                            .padding(.horizontal)
+                            LocationListItem(location: location)
+                                .environmentObject(userState)
                         }
                     }
                 }
@@ -79,19 +61,4 @@ struct ContentListView: View {
         }
         return groupedDict.sorted { $0.key > $1.key }
     }
-
-    private func openInMaps(address: String) {
-        let urlString = "http://maps.apple.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        if let url = URL(string: urlString) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
-    }
 }
-
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    return formatter
-}()

@@ -60,7 +60,6 @@ class GetLocationManager {
         }
 
         group.notify(queue: .main) {
-//            Self.saveLocations(locations)
             completion(locations)
         }
     }
@@ -92,5 +91,20 @@ class GetLocationManager {
             addressString += country
         }
         return addressString.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func loadSavedLocalLocations() {
+        print("LOAD MAIN APP")
+        var didLoad = false
+        if let savedLocations = GetLocationManager.shared.getLocations() {
+            print("savedLocations: \(savedLocations)")
+            for location in savedLocations {
+                didLoad = UserState.shared.addLocation(location: location)
+            }
+        }
+        if didLoad {
+            print("DID")
+            GetLocationManager.shared.clearLocations()
+        }
     }
 }
