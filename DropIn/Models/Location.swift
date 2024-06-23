@@ -1,10 +1,3 @@
-//
-//  LocationManagerHelper.swift
-//  DropIn
-//
-//  Created by Stephen Evrard on 5/24/24.
-//
-
 import Foundation
 
 struct Location: Codable, Identifiable, Equatable {
@@ -13,8 +6,10 @@ struct Location: Codable, Identifiable, Equatable {
     let longitude: Double
     let date: Date
     var name: String
-    var address: String?
-    var cityState: String?
+    var fullAddress: String
+    var streetAddress: String
+    var cityState: String
+    var zipCode: String
 
     static func == (lhs: Location, rhs: Location) -> Bool {
         return lhs.id == rhs.id &&
@@ -22,7 +17,9 @@ struct Location: Codable, Identifiable, Equatable {
                lhs.longitude == rhs.longitude &&
                lhs.date == rhs.date &&
                lhs.name == rhs.name &&
-               lhs.address == rhs.address &&
-               lhs.cityState == rhs.cityState
+               lhs.fullAddress == rhs.fullAddress &&
+               lhs.streetAddress == rhs.streetAddress &&
+               lhs.cityState == rhs.cityState &&
+               lhs.zipCode == rhs.zipCode
     }
 }

@@ -41,6 +41,7 @@
 		73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181D2C1A0C8C00583C4D /* HeaderView.swift */; };
 		73F318202C1A0CB800583C4D /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181F2C1A0CB800583C4D /* ContentListView.swift */; };
 		73F318222C1C751A00583C4D /* LocationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318212C1C751A00583C4D /* LocationListItem.swift */; };
+		73F318242C235B8C00583C4D /* EditLocationNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318232C235B8C00583C4D /* EditLocationNameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		73F3181D2C1A0C8C00583C4D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		73F3181F2C1A0CB800583C4D /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		73F318212C1C751A00583C4D /* LocationListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListItem.swift; sourceTree = "<group>"; };
+		73F318232C235B8C00583C4D /* EditLocationNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationNameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				73F3181D2C1A0C8C00583C4D /* HeaderView.swift */,
 				73F3181F2C1A0CB800583C4D /* ContentListView.swift */,
 				73F318212C1C751A00583C4D /* LocationListItem.swift */,
+				73F318232C235B8C00583C4D /* EditLocationNameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */,
 				73F318172C19EF9500583C4D /* User.swift in Sources */,
 				734A9E822C134340003B96D1 /* AppState.swift in Sources */,
+				73F318242C235B8C00583C4D /* EditLocationNameView.swift in Sources */,
 				734A9E712C122C07003B96D1 /* AppleSignInButtonView.swift in Sources */,
 				73CEEEA62C01344400B11F42 /* Location.swift in Sources */,
 				73F3181A2C19F01A00583C4D /* UserState.swift in Sources */,
@@ -617,7 +621,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -660,7 +664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

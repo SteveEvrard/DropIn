@@ -8,28 +8,52 @@ class GetLocationManager {
 
     static let locationsKey = "savedLocations"
 
-    func saveLocation(latitude: Double, longitude: Double, name: String, cityState: String? = nil) {
+    func saveLocationToLocalStorage(latitude: Double, longitude: Double) {
         let locationCoordinates = CLLocation(latitude: latitude, longitude: longitude)
         let geocoder = CLGeocoder()
-
         geocoder.reverseGeocodeLocation(locationCoordinates) { placemarks, error in
-            var address: String? = nil
+            var fullAddress: String? = nil
+            var streetAddress: String? = nil
+            var cityState: String? = nil
+            var zipCode: String? = nil
+            var defaultName: String? = nil
             if let placemark = placemarks?.first, error == nil {
-                address = Self.formatAddress(from: placemark)
+                fullAddress = self.formatAddress(from: placemark)
+                streetAddress = self.formatStreetAddress(from: placemark)
+                zipCode = placemark.postalCode
+                defaultName = streetAddress
+                let city = placemark.locality ?? ""
+                let state = placemark.administrativeArea ?? ""
+                cityState = "\(city), \(state)"
             }
 
-            let newLocation = Location(latitude: latitude, longitude: longitude, date: Date(), name: name, address: address, cityState: cityState)
-            UserState.shared.addLocation(location: newLocation)
+            let newLocation = Location(
+                latitude: latitude,
+                longitude: longitude,
+                date: Date(),
+                name: defaultName ?? "Unknown",
+                fullAddress: fullAddress ?? "Unknown",
+                streetAddress: streetAddress ?? "Unknown",
+                cityState: cityState ?? "Unknown",
+                zipCode: zipCode ?? "Unknown"
+            )
+            var savedLocations = self.getLocations() ?? []
+            savedLocations.append(newLocation)
+            self.saveLocationsToUserDefaults(savedLocations)
         }
     }
 
+    private func saveLocationsToUserDefaults(_ locations: [Location]) {
+        if let data = try? JSONEncoder().encode(locations) {
+            UserDefaults.standard.set(data, forKey: GetLocationManager.locationsKey)
+        }
+    }
+    
     func getLocations() -> [Location]? {
         if let data = UserDefaults.standard.data(forKey: Self.locationsKey),
            let locations = try? JSONDecoder().decode([Location].self, from: data) {
-            print("GET LOCATIONS: \(locations)")
             return locations
         } else {
-            print("GET LOCATIONS: NONE")
             return nil
         }
     }
@@ -53,7 +77,9 @@ class GetLocationManager {
                     let city = placemark.locality ?? ""
                     let state = placemark.administrativeArea ?? ""
                     locations[index].cityState = "\(city), \(state)"
-                    locations[index].address = Self.formatAddress(from: placemark)
+                    locations[index].fullAddress = self.formatAddress(from: placemark)
+                    locations[index].streetAddress = self.formatStreetAddress(from: placemark)
+                    locations[index].zipCode = placemark.postalCode ?? "Unknown"
                 }
                 group.leave()
             }
@@ -70,7 +96,7 @@ class GetLocationManager {
         }
     }
 
-    private static func formatAddress(from placemark: CLPlacemark) -> String {
+    func formatAddress(from placemark: CLPlacemark) -> String {
         var addressString = ""
         if let subThoroughfare = placemark.subThoroughfare {
             addressString += subThoroughfare + " "
@@ -93,17 +119,25 @@ class GetLocationManager {
         return addressString.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    func formatStreetAddress(from placemark: CLPlacemark) -> String {
+        var streetAddress = ""
+        if let subThoroughfare = placemark.subThoroughfare {
+            streetAddress += subThoroughfare + " "
+        }
+        if let thoroughfare = placemark.thoroughfare {
+            streetAddress += thoroughfare
+        }
+        return streetAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
     func loadSavedLocalLocations() {
-        print("LOAD MAIN APP")
         var didLoad = false
         if let savedLocations = GetLocationManager.shared.getLocations() {
-            print("savedLocations: \(savedLocations)")
             for location in savedLocations {
                 didLoad = UserState.shared.addLocation(location: location)
             }
         }
         if didLoad {
-            print("DID")
             GetLocationManager.shared.clearLocations()
         }
     }

@@ -3,34 +3,72 @@ import SwiftUI
 struct LocationListItem: View {
     @EnvironmentObject var userState: UserState
     var location: Location
+    @Binding var showEditNamePopup: Location?
+    @Binding var editedLocationName: String
     
     @State private var offset: CGFloat = 0
     @State private var isSwiped = false
     @State private var showAlert = false
+    @State private var isExpanded = false
     
     var body: some View {
         ZStack(alignment: .trailing) {
-            VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(location.address ?? "Unknown Address")
-                            .foregroundColor(Color("PrimaryTextColor"))
-                        if let cityState = location.cityState {
-                            Text(cityState)
+            VStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(location.name)
+                                .foregroundColor(Color("PrimaryTextColor"))
+                            Text(location.cityState)
                                 .font(.subheadline)
                                 .foregroundColor(Color("SecondaryTextColor"))
                         }
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                isExpanded.toggle()
+                            }
+                        }) {
+                            Image(systemName: isExpanded ? "arrow.up.right.and.arrow.down.left" : "arrow.down.left.and.arrow.up.right")
+                                .foregroundColor(Color("ButtonColor"))
+                        }
+                        .padding(.trailing, 10)
+                        Button(action: {
+                            editedLocationName = location.name
+                            showEditNamePopup = location
+                        }) {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(Color("ButtonColor"))
+                        }
+                        .padding(.trailing, 10)
+                        Button(action: {
+                            openInMaps(address: location.fullAddress)
+                        }) {
+                            Image(systemName: "map.fill")
+                                .foregroundColor(Color("ButtonColor"))
+                        }
                     }
-                    Spacer()
-                    Button(action: {
-                        openInMaps(address: location.address ?? "")
-                    }) {
-                        Image(systemName: "map.fill")
-                            .foregroundColor(Color("ButtonColor"))
+                    .padding(.top, 5)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal)
+                    .background(Color("BackgroundColor"))
+                    .onTapGesture {
+                        withAnimation {
+                            isExpanded.toggle()
+                        }
+                    }
+                    
+                    if isExpanded {
+                        VStack(alignment: .leading) {
+                            Text(location.streetAddress)
+                                .foregroundColor(Color("SecondaryTextColor"))
+                            Text("\(location.cityState) \(location.zipCode)")
+                                .foregroundColor(Color("SecondaryTextColor"))
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
                     }
                 }
-                .padding(.vertical, 5)
-                .padding(.horizontal)
                 .background(Color("BackgroundColor"))
                 .offset(x: offset)
                 .gesture(
@@ -52,7 +90,12 @@ struct LocationListItem: View {
                             }
                         }
                 )
-                Divider()
+                .overlay(
+                    VStack {
+                        Spacer()
+                        Divider().background(Color.gray)
+                    }
+                )
             }
             
             if isSwiped {
@@ -106,12 +149,5 @@ struct LocationListItem: View {
             self.offset = 0
             self.isSwiped = false
         }
-    }
-}
-
-struct LocationListItem_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationListItem(location: Location(id: UUID(), latitude: 0.0, longitude: 0.0, date: Date(), name: "Sample Location", address: "Sample Address", cityState: "Sample City, State"))
-            .environmentObject(UserState.shared)
     }
 }

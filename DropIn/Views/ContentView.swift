@@ -21,19 +21,4 @@ struct ContentView: View {
             }
         }
     }
-
-    private func loadSavedLocations() {
-        print("LOAD MAIN APP")
-        var didLoad = false
-        if let savedLocations = GetLocationManager.shared.getLocations() {
-            print("savedLocations: \(savedLocations)")
-            for location in savedLocations {
-                didLoad = userState.addLocation(location: location)
-            }
-        }
-        if didLoad {
-            print("DID")
-            GetLocationManager.shared.clearLocations()
-        }
-    }
 }

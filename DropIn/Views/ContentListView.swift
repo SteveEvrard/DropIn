@@ -4,6 +4,8 @@ struct ContentListView: View {
     @EnvironmentObject var userState: UserState
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var userLocationManager = UserLocationManager()
+    @State private var editedLocation: Location?
+    @State private var editedLocationName: String = ""
 
     var body: some View {
         ScrollView {
@@ -12,8 +14,9 @@ struct ContentListView: View {
                     Section(header: Text(dateFormatter.string(from: date))
                                 .foregroundColor(Color("PrimaryTextColor"))
                                 .padding(.top)) {
+                        Divider().background(Color.gray)
                         ForEach(locations) { location in
-                            LocationListItem(location: location)
+                            LocationListItem(location: location, showEditNamePopup: $editedLocation, editedLocationName: $editedLocationName)
                                 .environmentObject(userState)
                         }
                     }
@@ -38,21 +41,33 @@ struct ContentListView: View {
             }
         }
         .padding(.top, -8)
-        .onChange(of: userState.user?.locations) { _, newLocations in
-            if let locations = newLocations {
-                print("CHANGED: \(locations.count) locations")
-            }
-        }
         .onChange(of: scenePhase) { _, newValue in
             if case .active = newValue {
                 if var locations = userState.user?.locations {
                     for i in locations.indices {
-                        locations[i].address = locations[i].address
+                        locations[i].fullAddress = locations[i].fullAddress
                     }
                     userState.user?.locations = locations
                 }
             }
         }
+        .overlay(
+            Group {
+                if let editedLocation = editedLocation {
+                    Color.black.opacity(0.4)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            self.editedLocation = nil
+                        }
+                    EditLocationNameView(locationName: $editedLocationName, onSave: {
+                        updateLocationName(for: editedLocation)
+                        self.editedLocation = nil
+                    }, onCancel: {
+                        self.editedLocation = nil
+                    })
+                }
+            }
+        )
     }
     
     private func groupedLocationsByDate(_ locations: [Location]) -> [(key: Date, value: [Location])] {
@@ -60,5 +75,12 @@ struct ContentListView: View {
             Calendar.current.startOfDay(for: location.date)
         }
         return groupedDict.sorted { $0.key > $1.key }
+    }
+    
+    private func updateLocationName(for location: Location) {
+        if let user = userState.user, let index = user.locations.firstIndex(where: { $0.id == location.id }) {
+            userState.user?.locations[index].name = editedLocationName
+            userState.saveUser(user: userState.user ?? user)
+        }
     }
 }
