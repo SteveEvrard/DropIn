@@ -21,8 +21,8 @@ struct AddCategoryView: View {
             HStack {
                 Spacer()
                 Button(action: onCancel) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.red)
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color("PrimaryTextColor"))
                         .font(.title)
                 }
             }
@@ -31,11 +31,13 @@ struct AddCategoryView: View {
                 .font(.headline)
                 .foregroundColor(Color("PrimaryTextColor"))
 
-            TextField("Enter name", text: $categoryName)
+            CustomTextField(
+                placeholder: Text("Enter name").foregroundColor(Color("SecondaryTextColor")),
+                text: $categoryName
+            )
                 .padding()
-                .background(Color.white.opacity(0.2))
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
-                .foregroundColor(Color("PrimaryTextColor"))
 
             Menu {
                 ForEach(categoryTypes.keys.sorted(), id: \.self) { type in
@@ -56,9 +58,11 @@ struct AddCategoryView: View {
                     Spacer()
                     Image(systemName: categoryTypes[selectedCategoryType] ?? "questionmark.circle")
                         .foregroundColor(Color("PrimaryTextColor"))
+                    Image(systemName: "chevron.up.chevron.down")
+                        .foregroundColor(Color("PrimaryTextColor"))
                 }
                 .padding()
-                .background(Color.white.opacity(0.2))
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
             }
 

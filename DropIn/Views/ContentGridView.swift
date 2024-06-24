@@ -33,15 +33,23 @@ struct ContentGridView: View {
             .background(Color("BackgroundColor"))
             
             if showAddCategoryPopup {
-                Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
+                Color.black.opacity(0.4)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        showAddCategoryPopup = false
+                    }
                 AddCategoryView(
                     categoryName: $newCategoryName,
                     selectedCategoryType: $newCategoryType,
                     onSave: {
                         showAddCategoryPopup = false
+                        newCategoryName = ""
+                        newCategoryType = "General"
                     },
                     onCancel: {
                         showAddCategoryPopup = false
+                        newCategoryName = ""
+                        newCategoryType = "General"
                     }
                 )
                 .environmentObject(userState)

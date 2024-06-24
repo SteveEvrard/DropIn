@@ -11,8 +11,8 @@ struct EditLocationView: View {
             HStack {
                 Spacer()
                 Button(action: onCancel) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.red)
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color("PrimaryTextColor"))
                         .font(.title)
                 }
             }
@@ -21,11 +21,13 @@ struct EditLocationView: View {
                 .font(.headline)
                 .foregroundColor(Color("PrimaryTextColor"))
 
-            TextField("Enter name", text: $location.name)
+            CustomTextField(
+                placeholder: Text("Enter name").foregroundColor(Color("SecondaryTextColor")),
+                text: $location.name
+            )
                 .padding()
-                .background(Color.white.opacity(0.2))
+                .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
-                .foregroundColor(Color("PrimaryTextColor"))
 
             if let categories = userState.user?.categories {
                 Menu {
@@ -56,9 +58,11 @@ struct EditLocationView: View {
                         Spacer()
                         Image(systemName: location.category?.icon ?? "questionmark.circle")
                             .foregroundColor(Color("PrimaryTextColor"))
+                        Image(systemName: "chevron.up.chevron.down")
+                            .foregroundColor(Color("PrimaryTextColor"))
                     }
                     .padding()
-                    .background(Color.white.opacity(0.2))
+                    .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
                 }
             }

@@ -27,7 +27,7 @@ struct CategoryLocationsView: View {
                 }
                 .padding(.trailing, 10)
                 Button(action: onClose) {
-                    Image(systemName: "xmark.circle.fill")
+                    Image(systemName: "xmark")
                         .foregroundColor(Color("PrimaryTextColor"))
                         .font(.title)
                 }

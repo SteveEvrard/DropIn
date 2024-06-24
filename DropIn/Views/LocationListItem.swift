@@ -50,7 +50,9 @@ struct LocationListItem: View {
                                 copyToClipboard(text: location.fullAddress)
                             },
                             .destructive(Text("Delete")) {
+                                print("SHOW ALERT: \(showAlert)")
                                 showAlert = true
+                                print("SHOW ALERT AFTER: \(showAlert)")
                             },
                             .cancel()
                         ])
