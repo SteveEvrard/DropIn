@@ -6,13 +6,19 @@ struct ContentView: View {
     @EnvironmentObject var userState: UserState
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var userLocationManager = UserLocationManager()
+    @State private var isListView: Bool = true
 
     var body: some View {
         VStack(spacing: 0) {
-            HeaderView()
+            HeaderView(isListView: $isListView)
             Divider().background(Color.secondary)
-            ContentListView()
-                .environmentObject(userState)
+            if isListView {
+                ContentListView()
+                    .environmentObject(userState)
+            } else {
+                ContentGridView()
+                    .environmentObject(userState)
+            }
         }
         .background(Color("BackgroundColor"))
         .onChange(of: scenePhase) { oldPhase, newPhase in

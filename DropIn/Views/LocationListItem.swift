@@ -4,7 +4,6 @@ struct LocationListItem: View {
     @EnvironmentObject var userState: UserState
     var location: Location
     @Binding var showEditNamePopup: Location?
-    @Binding var editedLocationName: String
     
     @State private var offset: CGFloat = 0
     @State private var isSwiped = false
@@ -34,7 +33,6 @@ struct LocationListItem: View {
                         }
                         .padding(.trailing, 10)
                         Button(action: {
-                            editedLocationName = location.name
                             showEditNamePopup = location
                         }) {
                             Image(systemName: "square.and.pencil")

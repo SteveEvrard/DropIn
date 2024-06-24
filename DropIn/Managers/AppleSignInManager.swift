@@ -80,7 +80,7 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthori
                         print("Error saving user to Firestore: \(error.localizedDescription)")
                     } else {
                         print("User saved to Firestore.")
-                        let newUser = User(id: user.uid, name: "\(fullName?.givenName ?? "") \(fullName?.familyName ?? "")", email: email ?? "", locations: [])
+                        let newUser = User(id: user.uid, name: "\(fullName?.givenName ?? "") \(fullName?.familyName ?? "")", email: email ?? "", locations: [], categories: [])
                         completion(newUser)
                     }
                 }

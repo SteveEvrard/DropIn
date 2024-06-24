@@ -10,6 +10,7 @@ struct Location: Codable, Identifiable, Equatable {
     var streetAddress: String
     var cityState: String
     var zipCode: String
+    var category: Category?
 
     static func == (lhs: Location, rhs: Location) -> Bool {
         return lhs.id == rhs.id &&
@@ -20,6 +21,7 @@ struct Location: Codable, Identifiable, Equatable {
                lhs.fullAddress == rhs.fullAddress &&
                lhs.streetAddress == rhs.streetAddress &&
                lhs.cityState == rhs.cityState &&
-               lhs.zipCode == rhs.zipCode
+               lhs.zipCode == rhs.zipCode &&
+               lhs.category?.id == rhs.category?.id
     }
 }

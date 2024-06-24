@@ -63,7 +63,7 @@ class GoogleSignInManager: NSObject, ObservableObject {
                 }
             } else {
                 // Create a new user document
-                let newUser = User(id: user.uid, name: user.displayName ?? "Anonymous", email: user.email ?? "No email", locations: [])
+                let newUser = User(id: user.uid, name: user.displayName ?? "Anonymous", email: user.email ?? "No email", locations: [], categories: [])
                 do {
                     try db.collection("users").document(newUser.id).setData(from: newUser) { error in
                         if let error = error {

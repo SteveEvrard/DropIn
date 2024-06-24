@@ -29,6 +29,7 @@
 		737148432BED72DD00676E63 /* DropInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148422BED72DD00676E63 /* DropInUITests.swift */; };
 		737148452BED72DD00676E63 /* DropInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */; };
 		737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148532BED74A800676E63 /* GetLocationShortcut.swift */; };
+		73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */; };
 		73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */; };
 		73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA32BF3BF7400B11F42 /* GetLocationManager.swift */; };
 		73CEEEA62C01344400B11F42 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA52C01344400B11F42 /* Location.swift */; };
@@ -41,7 +42,11 @@
 		73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181D2C1A0C8C00583C4D /* HeaderView.swift */; };
 		73F318202C1A0CB800583C4D /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3181F2C1A0CB800583C4D /* ContentListView.swift */; };
 		73F318222C1C751A00583C4D /* LocationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318212C1C751A00583C4D /* LocationListItem.swift */; };
-		73F318242C235B8C00583C4D /* EditLocationNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318232C235B8C00583C4D /* EditLocationNameView.swift */; };
+		73F318242C235B8C00583C4D /* EditLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318232C235B8C00583C4D /* EditLocationView.swift */; };
+		73F318262C29B53000583C4D /* ContentGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318252C29B52F00583C4D /* ContentGridView.swift */; };
+		73F318282C29B7A200583C4D /* CategoryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318272C29B7A200583C4D /* CategoryTile.swift */; };
+		73F3182A2C29BDF700583C4D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F318292C29BDF700583C4D /* Category.swift */; };
+		73F3182C2C29C2D200583C4D /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3182B2C29C2D200583C4D /* AddCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +104,7 @@
 		737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		737148532BED74A800676E63 /* GetLocationShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationShortcut.swift; sourceTree = "<group>"; };
 		737148552BED7AEA00676E63 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocationsView.swift; sourceTree = "<group>"; };
 		73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
 		73CEEEA32BF3BF7400B11F42 /* GetLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationManager.swift; sourceTree = "<group>"; };
 		73CEEEA52C01344400B11F42 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -111,7 +117,11 @@
 		73F3181D2C1A0C8C00583C4D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		73F3181F2C1A0CB800583C4D /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		73F318212C1C751A00583C4D /* LocationListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListItem.swift; sourceTree = "<group>"; };
-		73F318232C235B8C00583C4D /* EditLocationNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationNameView.swift; sourceTree = "<group>"; };
+		73F318232C235B8C00583C4D /* EditLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationView.swift; sourceTree = "<group>"; };
+		73F318252C29B52F00583C4D /* ContentGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentGridView.swift; sourceTree = "<group>"; };
+		73F318272C29B7A200583C4D /* CategoryTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTile.swift; sourceTree = "<group>"; };
+		73F318292C29BDF700583C4D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		73F3182B2C29C2D200583C4D /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,7 +275,11 @@
 				73F3181D2C1A0C8C00583C4D /* HeaderView.swift */,
 				73F3181F2C1A0CB800583C4D /* ContentListView.swift */,
 				73F318212C1C751A00583C4D /* LocationListItem.swift */,
-				73F318232C235B8C00583C4D /* EditLocationNameView.swift */,
+				73F318232C235B8C00583C4D /* EditLocationView.swift */,
+				73F318252C29B52F00583C4D /* ContentGridView.swift */,
+				73F318272C29B7A200583C4D /* CategoryTile.swift */,
+				73F3182B2C29C2D200583C4D /* AddCategoryView.swift */,
+				73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +298,7 @@
 			children = (
 				73CEEEA52C01344400B11F42 /* Location.swift */,
 				73F318162C19EF9500583C4D /* User.swift */,
+				73F318292C29BDF700583C4D /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -445,15 +460,19 @@
 				73F318222C1C751A00583C4D /* LocationListItem.swift in Sources */,
 				737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */,
 				734A9E792C122C87003B96D1 /* Utilities.swift in Sources */,
+				73F318262C29B53000583C4D /* ContentGridView.swift in Sources */,
 				73F3180E2C134B9500583C4D /* MainView.swift in Sources */,
+				73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */,
+				73F318282C29B7A200583C4D /* CategoryTile.swift in Sources */,
 				734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */,
 				734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */,
 				73F318172C19EF9500583C4D /* User.swift in Sources */,
 				734A9E822C134340003B96D1 /* AppState.swift in Sources */,
-				73F318242C235B8C00583C4D /* EditLocationNameView.swift in Sources */,
+				73F318242C235B8C00583C4D /* EditLocationView.swift in Sources */,
 				734A9E712C122C07003B96D1 /* AppleSignInButtonView.swift in Sources */,
 				73CEEEA62C01344400B11F42 /* Location.swift in Sources */,
 				73F3181A2C19F01A00583C4D /* UserState.swift in Sources */,
+				73F3182C2C29C2D200583C4D /* AddCategoryView.swift in Sources */,
 				734A9E6C2C122AF5003B96D1 /* SignInButtonView.swift in Sources */,
 				734A9E7B2C123CB3003B96D1 /* Color.swift in Sources */,
 				73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */,
@@ -461,6 +480,7 @@
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
 				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
+				73F3182A2C29BDF700583C4D /* Category.swift in Sources */,
 				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,
 				73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */,
 				737148272BED72DB00676E63 /* DropInApp.swift in Sources */,

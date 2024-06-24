@@ -3,6 +3,7 @@ import FirebaseAuth
 
 struct HeaderView: View {
     @EnvironmentObject var appState: AppState
+    @Binding var isListView: Bool
     
     var body: some View {
         HStack {
@@ -14,21 +15,31 @@ struct HeaderView: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color("PrimaryTextColor"))
             Spacer()
-            Button(action: {
-                AuthManager.shared.signOut { result in
-                    switch result {
-                    case .success():
-                        appState.updateAuthenticationState()
-                    case .failure(let error):
-                        print("Failed to sign out: \(error.localizedDescription)")
+            HStack(spacing: 10) {
+                Button(action: {
+                    withAnimation {
+                        isListView = true
                     }
+                }) {
+                    Image(systemName: "list.bullet")
+                        .imageScale(.large)
+                        .foregroundColor(isListView ? Color("ButtonTextColor") : Color("ButtonColor"))
+                        .padding(10)
+                        .background(isListView ? Color("ButtonColor") : Color.clear)
+                        .cornerRadius(8)
                 }
-            }) {
-                Text("Sign Out")
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.red)
-                    .cornerRadius(8)
+                Button(action: {
+                    withAnimation {
+                        isListView = false
+                    }
+                }) {
+                    Image(systemName: "rectangle.grid.2x2.fill")
+                        .imageScale(.large)
+                        .foregroundColor(!isListView ? Color("ButtonTextColor") : Color("ButtonColor"))
+                        .padding(10)
+                        .background(!isListView ? Color("ButtonColor") : Color.clear)
+                        .cornerRadius(8)
+                }
             }
         }
         .padding()

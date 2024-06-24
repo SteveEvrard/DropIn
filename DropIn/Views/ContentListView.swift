@@ -5,7 +5,6 @@ struct ContentListView: View {
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var userLocationManager = UserLocationManager()
     @State private var editedLocation: Location?
-    @State private var editedLocationName: String = ""
 
     var body: some View {
         ScrollView {
@@ -16,7 +15,7 @@ struct ContentListView: View {
                                 .padding(.top)) {
                         Divider().background(Color.gray)
                         ForEach(locations) { location in
-                            LocationListItem(location: location, showEditNamePopup: $editedLocation, editedLocationName: $editedLocationName)
+                            LocationListItem(location: location, showEditNamePopup: $editedLocation)
                                 .environmentObject(userState)
                         }
                     }
@@ -53,33 +52,41 @@ struct ContentListView: View {
         }
         .overlay(
             Group {
-                if let editedLocation = editedLocation {
+                if let location = editedLocation {
                     Color.black.opacity(0.4)
                         .edgesIgnoringSafeArea(.all)
                         .onTapGesture {
                             self.editedLocation = nil
                         }
-                    EditLocationNameView(locationName: $editedLocationName, onSave: {
-                        updateLocationName(for: editedLocation)
-                        self.editedLocation = nil
-                    }, onCancel: {
-                        self.editedLocation = nil
-                    })
+                    EditLocationView(
+                        location: Binding(
+                            get: { location },
+                            set: { self.editedLocation = $0 }
+                        ),
+                        onSave: {
+                            updateLocation(for: location)
+                            self.editedLocation = nil
+                        },
+                        onCancel: {
+                            self.editedLocation = nil
+                        }
+                    )
+                    .environmentObject(userState)
                 }
             }
         )
     }
-    
+
     private func groupedLocationsByDate(_ locations: [Location]) -> [(key: Date, value: [Location])] {
         let groupedDict = Dictionary(grouping: locations) { (location: Location) in
             Calendar.current.startOfDay(for: location.date)
         }
         return groupedDict.sorted { $0.key > $1.key }
     }
-    
-    private func updateLocationName(for location: Location) {
+
+    private func updateLocation(for location: Location) {
         if let user = userState.user, let index = user.locations.firstIndex(where: { $0.id == location.id }) {
-            userState.user?.locations[index].name = editedLocationName
+            userState.user?.locations[index] = location
             userState.saveUser(user: userState.user ?? user)
         }
     }

@@ -40,6 +40,7 @@ class UserState: ObservableObject {
                     print("Error saving user: \(error.localizedDescription)")
                     break
                 case .finished:
+                    self.user = user
                     break
                 }
             }, receiveValue: { _ in })
@@ -63,7 +64,6 @@ class UserState: ObservableObject {
         guard var user = user else { return false }
         user.locations.append(location)
         saveUser(user: user)
-        self.user = user
         return true
     }
 
@@ -71,7 +71,6 @@ class UserState: ObservableObject {
         guard var user = user else { return }
         user.locations.removeAll { $0.id == locationId }
         saveUser(user: user)
-        self.user = user
     }
 
     func uploadSavedLocations() {

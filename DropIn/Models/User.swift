@@ -10,11 +10,13 @@ struct User: Identifiable, Codable, Equatable {
     var name: String
     var email: String
     var locations: [Location]
+    var categories: [Category]
 
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.id == rhs.id &&
                lhs.name == rhs.name &&
                lhs.email == rhs.email &&
-               lhs.locations == rhs.locations
+               lhs.locations == rhs.locations &&
+               lhs.categories == rhs.categories
     }
 }
