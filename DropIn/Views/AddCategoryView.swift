@@ -12,7 +12,8 @@ struct AddCategoryView: View {
         "Favorite": "star.fill",
         "Home": "house.fill",
         "Nature": "leaf.fill",
-        "Travel": "car.fill"
+        "Travel": "car.fill",
+        "City": "building.2.fill"
     ]
 
     var body: some View {
@@ -25,7 +26,6 @@ struct AddCategoryView: View {
                         .font(.title)
                 }
             }
-            .padding([.trailing])
 
             Text("Add Category")
                 .font(.headline)

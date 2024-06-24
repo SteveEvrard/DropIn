@@ -39,7 +39,6 @@ struct ContentGridView: View {
                     selectedCategoryType: $newCategoryType,
                     onSave: {
                         showAddCategoryPopup = false
-                        // Add logic to save new category
                     },
                     onCancel: {
                         showAddCategoryPopup = false

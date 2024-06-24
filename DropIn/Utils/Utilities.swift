@@ -50,3 +50,7 @@ func sha256(_ input: String) -> String {
 
     return hashString
 }
+
+func copyToClipboard(text: String) {
+    UIPasteboard.general.string = text
+}

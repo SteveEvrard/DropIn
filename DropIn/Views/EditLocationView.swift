@@ -16,7 +16,6 @@ struct EditLocationView: View {
                         .font(.title)
                 }
             }
-            .padding([.trailing])
 
             Text("Edit Location")
                 .font(.headline)
