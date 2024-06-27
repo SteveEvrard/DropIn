@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct LocationListItem: View {
     @EnvironmentObject var userState: UserState
@@ -43,16 +44,17 @@ struct LocationListItem: View {
                             .default(Text("Edit")) {
                                 showEditNamePopup = location
                             },
-                            .default(Text("Open in Maps")) {
-                                openInMaps(address: location.fullAddress)
+                            .default(Text("Open in Apple Maps")) {
+                                openInAppleMaps(address: location.fullAddress)
+                            },
+                            .default(Text("Open in Google Maps")) {
+                                openInGoogleMaps(address: location.fullAddress)
                             },
                             .default(Text("Copy Address")) {
                                 copyToClipboard(text: location.fullAddress)
                             },
                             .destructive(Text("Delete")) {
-                                print("SHOW ALERT: \(showAlert)")
                                 showAlert = true
-                                print("SHOW ALERT AFTER: \(showAlert)")
                             },
                             .cancel()
                         ])
@@ -63,7 +65,11 @@ struct LocationListItem: View {
                 .padding(.horizontal)
                 .background(Color("BackgroundColor"))
                 .onTapGesture {
-                    withAnimation {
+                    if !isExpanded {
+                        withAnimation {
+                            isExpanded.toggle()
+                        }
+                    } else {
                         isExpanded.toggle()
                     }
                 }
@@ -88,6 +94,7 @@ struct LocationListItem: View {
                                 .foregroundColor(Color("SecondaryTextColor"))
                             Spacer()
                         }
+                        MapPreviewView(location: location)
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 10)
@@ -112,15 +119,6 @@ struct LocationListItem: View {
                 },
                 secondaryButton: .cancel()
             )
-        }
-    }
-    
-    private func openInMaps(address: String) {
-        let urlString = "http://maps.apple.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
-        if let url = URL(string: urlString) {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
         }
     }
 }

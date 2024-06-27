@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7303C8032C2DA53400E0815E /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303C8022C2DA53400E0815E /* MapPreviewView.swift */; };
 		730E6A502C11FE7C009D0DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */; };
 		734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E652C120C73003B96D1 /* FirebaseAuth */; };
 		734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E672C120C73003B96D1 /* FirebaseFirestore */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7303C8022C2DA53400E0815E /* MapPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewView.swift; sourceTree = "<group>"; };
 		730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				73F3182B2C29C2D200583C4D /* AddCategoryView.swift */,
 				73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */,
 				73CEE9C22C2A230100D9074F /* CustomTextField.swift */,
+				7303C8022C2DA53400E0815E /* MapPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				73F3180E2C134B9500583C4D /* MainView.swift in Sources */,
 				73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */,
 				73F318282C29B7A200583C4D /* CategoryTile.swift in Sources */,
+				7303C8032C2DA53400E0815E /* MapPreviewView.swift in Sources */,
 				734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */,
 				734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */,
 				73F318172C19EF9500583C4D /* User.swift in Sources */,
@@ -645,7 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -688,7 +692,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

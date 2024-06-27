@@ -1,5 +1,7 @@
 import CryptoKit
+import Foundation
 import SwiftUI
+import CoreLocation
 
 func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
@@ -39,7 +41,6 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-
 @available(iOS 13, *)
 func sha256(_ input: String) -> String {
     let inputData = Data(input.utf8)
@@ -53,4 +54,25 @@ func sha256(_ input: String) -> String {
 
 func copyToClipboard(text: String) {
     UIPasteboard.general.string = text
+}
+
+func openInAppleMaps(address: String) {
+    let urlString = "http://maps.apple.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+    if let url = URL(string: urlString) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+}
+
+func openInGoogleMaps(address: String) {
+    let urlString = "comgooglemaps://?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+    if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    } else {
+        let browserURLString = "https://maps.google.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        if let browserURL = URL(string: browserURLString) {
+            UIApplication.shared.open(browserURL, options: [:], completionHandler: nil)
+        }
+    }
 }

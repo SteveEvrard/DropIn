@@ -35,5 +35,10 @@
             </array>
         </dict>
     </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>comgooglemaps-x-callback</string>
+    </array>
 </dict>
 </plist>
