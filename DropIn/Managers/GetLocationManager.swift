@@ -4,32 +4,27 @@ import FirebaseAuth
 
 class GetLocationManager {
     static let shared = GetLocationManager()
-    private init() {} // Private initializer for singleton
+    private init() {}
 
     static let locationsKey = "savedLocations"
 
     func saveLocationToLocalStorage(latitude: Double, longitude: Double) {
         let locationCoordinates = CLLocation(latitude: latitude, longitude: longitude)
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(locationCoordinates) { placemarks, error in
-            var fullAddress: String? = nil
-            var streetAddress: String? = nil
-            var cityState: String? = nil
-            var zipCode: String? = nil
-            var defaultName: String? = nil
-            if let placemark = placemarks?.first, error == nil {
-                fullAddress = self.formatAddress(from: placemark)
-                streetAddress = self.formatStreetAddress(from: placemark)
-                zipCode = placemark.postalCode
-                defaultName = streetAddress
-                let city = placemark.locality ?? ""
-                let state = placemark.administrativeArea ?? ""
-                cityState = "\(city), \(state)"
-            }
+        fetchLocationDetails(for: locationCoordinates) { [weak self] newLocation in
+            guard let self = self else { return }
+            var savedLocations = self.getLocations() ?? []
+            savedLocations.append(newLocation)
+            self.saveLocationsToUserDefaults(savedLocations)
+        }
+    }
 
+    func fetchLocationDetails(for location: CLLocation, completion: @escaping (Location) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            let (fullAddress, streetAddress, cityState, zipCode, defaultName) = self.formatLocationDetails(from: placemarks, error: error)
             let newLocation = Location(
-                latitude: latitude,
-                longitude: longitude,
+                latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude,
                 date: Date(),
                 name: defaultName ?? "Unknown",
                 fullAddress: fullAddress ?? "Unknown",
@@ -37,10 +32,24 @@ class GetLocationManager {
                 cityState: cityState ?? "Unknown",
                 zipCode: zipCode ?? "Unknown"
             )
-            var savedLocations = self.getLocations() ?? []
-            savedLocations.append(newLocation)
-            self.saveLocationsToUserDefaults(savedLocations)
+            completion(newLocation)
         }
+    }
+
+    private func formatLocationDetails(from placemarks: [CLPlacemark]?, error: Error?) -> (String?, String?, String?, String?, String?) {
+        guard let placemark = placemarks?.first, error == nil else {
+            return (nil, nil, nil, nil, nil)
+        }
+
+        let fullAddress = formatAddress(from: placemark)
+        let streetAddress = formatStreetAddress(from: placemark)
+        let city = placemark.locality ?? ""
+        let state = placemark.administrativeArea ?? ""
+        let cityState = "\(city), \(state)"
+        let zipCode = placemark.postalCode
+        let defaultName = streetAddress
+
+        return (fullAddress, streetAddress, cityState, zipCode, defaultName)
     }
 
     private func saveLocationsToUserDefaults(_ locations: [Location]) {
@@ -63,7 +72,6 @@ class GetLocationManager {
     }
 
     func updateCityStateForLocations(completion: @escaping ([Location]) -> Void) {
-        print("updateCityStateForLocations")
         guard var locations = getLocations() else { return }
         let geocoder = CLGeocoder()
         let group = DispatchGroup()
@@ -131,14 +139,17 @@ class GetLocationManager {
     }
 
     func loadSavedLocalLocations() {
-        var didLoad = false
-        if let savedLocations = GetLocationManager.shared.getLocations() {
+        var allLocationsAdded = true
+        if let savedLocations = getLocations() {
             for location in savedLocations {
-                didLoad = UserState.shared.addLocation(location: location)
+                let didAddLocation = UserState.shared.addLocation(location: location)
+                if !didAddLocation {
+                    allLocationsAdded = false
+                }
             }
         }
-        if didLoad {
-            GetLocationManager.shared.clearLocations()
+        if allLocationsAdded {
+            clearLocations()
         }
     }
 }

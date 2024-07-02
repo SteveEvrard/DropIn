@@ -22,6 +22,7 @@
 		734A9E7E2C12601B003B96D1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E7D2C12601B003B96D1 /* GoogleSignIn */; };
 		734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */; };
 		734A9E822C134340003B96D1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E812C134340003B96D1 /* AppState.swift */; };
+		736458712C2F5E0900B10318 /* SaveLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736458702C2F5E0900B10318 /* SaveLocationButton.swift */; };
 		737148272BED72DB00676E63 /* DropInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148262BED72DB00676E63 /* DropInApp.swift */; };
 		737148292BED72DB00676E63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148282BED72DB00676E63 /* ContentView.swift */; };
 		7371482B2BED72DD00676E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7371482A2BED72DD00676E63 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		737148432BED72DD00676E63 /* DropInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148422BED72DD00676E63 /* DropInUITests.swift */; };
 		737148452BED72DD00676E63 /* DropInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */; };
 		737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148532BED74A800676E63 /* GetLocationShortcut.swift */; };
+		73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C4573A2C344E5000AC8FEF /* ToastView.swift */; };
 		73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */; };
 		73CEE9C32C2A230100D9074F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C22C2A230100D9074F /* CustomTextField.swift */; };
 		73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */; };
@@ -94,6 +96,7 @@
 		734A9E7A2C123CB3003B96D1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
 		734A9E812C134340003B96D1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		736458702C2F5E0900B10318 /* SaveLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationButton.swift; sourceTree = "<group>"; };
 		737148232BED72DB00676E63 /* DropIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737148262BED72DB00676E63 /* DropInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInApp.swift; sourceTree = "<group>"; };
 		737148282BED72DB00676E63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		737148532BED74A800676E63 /* GetLocationShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationShortcut.swift; sourceTree = "<group>"; };
 		737148552BED7AEA00676E63 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		73C4573A2C344E5000AC8FEF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocationsView.swift; sourceTree = "<group>"; };
 		73CEE9C22C2A230100D9074F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		73CEEEA12BF3BF5400B11F42 /* UserLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */,
 				73CEE9C22C2A230100D9074F /* CustomTextField.swift */,
 				7303C8022C2DA53400E0815E /* MapPreviewView.swift */,
+				73C4573A2C344E5000AC8FEF /* ToastView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			children = (
 				734A9E692C122AAE003B96D1 /* SignInView.swift */,
 				734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */,
+				736458702C2F5E0900B10318 /* SaveLocationButton.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -488,10 +494,12 @@
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
 				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
+				73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */,
 				73F3182A2C29BDF700583C4D /* Category.swift in Sources */,
 				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,
 				73F3181E2C1A0C8C00583C4D /* HeaderView.swift in Sources */,
 				737148272BED72DB00676E63 /* DropInApp.swift in Sources */,
+				736458712C2F5E0900B10318 /* SaveLocationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +657,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -692,7 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

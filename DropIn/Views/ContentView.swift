@@ -9,22 +9,26 @@ struct ContentView: View {
     @State private var isListView: Bool = true
 
     var body: some View {
-        VStack(spacing: 0) {
-            HeaderView(isListView: $isListView)
-            Divider().background(Color.secondary)
-            if isListView {
-                ContentListView()
-                    .environmentObject(userState)
-            } else {
-                ContentGridView()
-                    .environmentObject(userState)
+        ZStack {
+            VStack(spacing: 0) {
+                HeaderView(isListView: $isListView)
+                Divider().background(Color.secondary)
+                if isListView {
+                    ContentListView()
+                        .environmentObject(userState)
+                } else {
+                    ContentGridView()
+                        .environmentObject(userState)
+                }
             }
-        }
-        .background(Color("BackgroundColor"))
-        .onChange(of: scenePhase) { oldPhase, newPhase in
-            if newPhase == .active {
-                GetLocationManager.shared.loadSavedLocalLocations()
+            .background(Color("BackgroundColor"))
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                if newPhase == .active {
+                    GetLocationManager.shared.loadSavedLocalLocations()
+                }
             }
+            
+            SaveLocationButton()
         }
     }
 }
