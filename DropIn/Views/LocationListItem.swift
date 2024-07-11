@@ -45,10 +45,10 @@ struct LocationListItem: View {
                                 showEditNamePopup = location
                             },
                             .default(Text("Open in Apple Maps")) {
-                                openInAppleMaps(address: location.fullAddress)
+                                openInAppleMaps(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
                             },
                             .default(Text("Open in Google Maps")) {
-                                openInGoogleMaps(address: location.fullAddress)
+                                openInGoogleMaps(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
                             },
                             .default(Text("Copy Address")) {
                                 copyToClipboard(text: location.fullAddress)

@@ -56,8 +56,8 @@ func copyToClipboard(text: String) {
     UIPasteboard.general.string = text
 }
 
-func openInAppleMaps(address: String) {
-    let urlString = "http://maps.apple.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+func openInAppleMaps(coordinate: CLLocationCoordinate2D) {
+    let urlString = "http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)"
     if let url = URL(string: urlString) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -65,12 +65,12 @@ func openInAppleMaps(address: String) {
     }
 }
 
-func openInGoogleMaps(address: String) {
-    let urlString = "comgooglemaps://?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+func openInGoogleMaps(coordinate: CLLocationCoordinate2D) {
+    let urlString = "comgooglemaps://?q=\(coordinate.latitude),\(coordinate.longitude)&zoom=14"
     if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     } else {
-        let browserURLString = "https://maps.google.com/?q=\(address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        let browserURLString = "https://maps.google.com/?q=\(coordinate.latitude),\(coordinate.longitude)&zoom=14"
         if let browserURL = URL(string: browserURLString) {
             UIApplication.shared.open(browserURL, options: [:], completionHandler: nil)
         }
