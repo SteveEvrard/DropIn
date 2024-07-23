@@ -57,7 +57,7 @@ func copyToClipboard(text: String) {
 }
 
 func openInAppleMaps(coordinate: CLLocationCoordinate2D) {
-    let urlString = "http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)"
+    let urlString = "http://maps.apple.com/?ll=\(coordinate.latitude),\(coordinate.longitude)&q=Pin"
     if let url = URL(string: urlString) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

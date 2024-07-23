@@ -25,7 +25,14 @@ struct LocationListItem: View {
                     if let category = location.category {
                         Image(systemName: category.icon)
                             .foregroundColor(Color("ButtonColor"))
-                            .padding(.trailing, 10)
+                            .font(.title2)
+                    }
+                    Button(action: {
+                        showEditNamePopup = location
+                    }) {
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(Color("ButtonColor"))
+                            .font(.title2)
                     }
                     Button(action: {
                         showMenu.toggle()
@@ -40,9 +47,6 @@ struct LocationListItem: View {
                                 withAnimation {
                                     isExpanded.toggle()
                                 }
-                            },
-                            .default(Text("Edit")) {
-                                showEditNamePopup = location
                             },
                             .default(Text("Open in Apple Maps")) {
                                 openInAppleMaps(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
@@ -75,29 +79,7 @@ struct LocationListItem: View {
                 }
                 
                 if isExpanded {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text(location.streetAddress)
-                                .foregroundColor(Color("SecondaryTextColor"))
-                            Spacer()
-                            if let category = location.category {
-                                HStack(spacing: 5) {
-                                    Image(systemName: category.icon)
-                                        .foregroundColor(Color("ButtonColor"))
-                                    Text(category.name)
-                                        .foregroundColor(Color("PrimaryTextColor"))
-                                }
-                            }
-                        }
-                        HStack {
-                            Text("\(location.cityState) \(location.zipCode)")
-                                .foregroundColor(Color("SecondaryTextColor"))
-                            Spacer()
-                        }
-                        MapPreviewView(location: location)
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
+                    ExpandedLocationView(location: location)
                 }
             }
             .background(Color("BackgroundColor"))

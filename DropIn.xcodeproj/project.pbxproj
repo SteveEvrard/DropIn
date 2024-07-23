@@ -31,6 +31,8 @@
 		737148432BED72DD00676E63 /* DropInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148422BED72DD00676E63 /* DropInUITests.swift */; };
 		737148452BED72DD00676E63 /* DropInUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */; };
 		737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148532BED74A800676E63 /* GetLocationShortcut.swift */; };
+		737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */; };
+		737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */; };
 		73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C4573A2C344E5000AC8FEF /* ToastView.swift */; };
 		73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */; };
 		73CEE9C32C2A230100D9074F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C22C2A230100D9074F /* CustomTextField.swift */; };
@@ -110,6 +112,8 @@
 		737148442BED72DD00676E63 /* DropInUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		737148532BED74A800676E63 /* GetLocationShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationShortcut.swift; sourceTree = "<group>"; };
 		737148552BED7AEA00676E63 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationButton.swift; sourceTree = "<group>"; };
+		737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedLocationView.swift; sourceTree = "<group>"; };
 		73C4573A2C344E5000AC8FEF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocationsView.swift; sourceTree = "<group>"; };
 		73CEE9C22C2A230100D9074F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -291,6 +295,9 @@
 				73CEE9C22C2A230100D9074F /* CustomTextField.swift */,
 				7303C8022C2DA53400E0815E /* MapPreviewView.swift */,
 				73C4573A2C344E5000AC8FEF /* ToastView.swift */,
+				736458702C2F5E0900B10318 /* SaveLocationButton.swift */,
+				737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */,
+				737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,7 +307,6 @@
 			children = (
 				734A9E692C122AAE003B96D1 /* SignInView.swift */,
 				734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */,
-				736458702C2F5E0900B10318 /* SaveLocationButton.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -493,7 +499,9 @@
 				73F318142C1351A100583C4D /* GetLocationIntent.swift in Sources */,
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
 				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
+				737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
+				737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */,
 				73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */,
 				73F3182A2C29BDF700583C4D /* Category.swift in Sources */,
 				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,
@@ -658,7 +666,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -703,7 +711,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

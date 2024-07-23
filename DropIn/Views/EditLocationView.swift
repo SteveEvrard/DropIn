@@ -67,6 +67,23 @@ struct EditLocationView: View {
                 }
             }
 
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Notes")
+                    .font(.subheadline)
+                    .foregroundColor(Color("PrimaryTextColor"))
+
+                CustomTextField(
+                    placeholder: Text("Enter notes").foregroundColor(Color("SecondaryTextColor")),
+                    text: Binding(
+                        get: { location.description ?? "" },
+                        set: { location.description = $0.isEmpty ? "" : $0 }
+                    )
+                )
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(8)
+            }
+
             Button(action: onSave) {
                 Text("Save")
                     .foregroundColor(Color("ButtonTextColor"))
