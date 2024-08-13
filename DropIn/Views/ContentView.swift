@@ -29,6 +29,11 @@ struct ContentView: View {
             }
             
             SaveLocationButton()
+            
+            if appState.displaySiriPopup {
+                SiriPopupView()
+                    .environmentObject(appState)
+            }
         }
     }
 }

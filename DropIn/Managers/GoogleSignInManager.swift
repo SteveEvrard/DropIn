@@ -39,8 +39,9 @@ class GoogleSignInManager: NSObject, ObservableObject {
                     completion(.failure(error))
                 } else if let authResult = authResult {
                     self.appState?.updateAuthenticationState()
+                    self.appState?.displaySiriPopup = true
                     self.saveUserToFirestoreIfNeeded(user: authResult.user) { user in
-                        UserState.shared.user = user // Set the user in the singleton instance
+                        UserState.shared.user = user 
                         completion(.success(authResult))
                     }
                 }

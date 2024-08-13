@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7303C8032C2DA53400E0815E /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303C8022C2DA53400E0815E /* MapPreviewView.swift */; };
+		73096D5D2C6C023B00790EBD /* SiriPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73096D5C2C6C023B00790EBD /* SiriPopupView.swift */; };
 		730E6A502C11FE7C009D0DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */; };
 		734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E652C120C73003B96D1 /* FirebaseAuth */; };
 		734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E672C120C73003B96D1 /* FirebaseFirestore */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		7303C8022C2DA53400E0815E /* MapPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewView.swift; sourceTree = "<group>"; };
+		73096D5C2C6C023B00790EBD /* SiriPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriPopupView.swift; sourceTree = "<group>"; };
 		730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */,
 				737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */,
 				73FEFDF42C591AC800229F17 /* SaveKMLButton.swift */,
+				73096D5C2C6C023B00790EBD /* SiriPopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
 				737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */,
+				73096D5D2C6C023B00790EBD /* SiriPopupView.swift in Sources */,
 				73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */,
 				73F3182A2C29BDF700583C4D /* Category.swift in Sources */,
 				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,

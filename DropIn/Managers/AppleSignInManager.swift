@@ -45,6 +45,7 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthori
                 self.handleSuccessfulSignIn(authResult: authResult, appleIDCredential: appleIDCredential) { user in
                     UserState.shared.user = user // Set the user in the singleton instance
                     self.appState?.updateAuthenticationState()
+                    self.appState?.displaySiriPopup = true
                     print("Successfully signed in with Apple!")
                 }
             }
