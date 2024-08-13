@@ -24,7 +24,7 @@ struct ContentGridView: View {
                             }
                         }
                     }
-                    CategoryTile(category: Category(name: "Add", icon: "plus")) {
+                    CategoryTile(category: Category(name: "Add Category", icon: "plus")) {
                         showAddCategoryPopup = true
                     }
                 }

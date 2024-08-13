@@ -1,6 +1,6 @@
 import Foundation
 
-struct Location: Codable, Identifiable, Equatable {
+struct Location: Codable, Identifiable, Equatable, Hashable {
     var id = UUID()
     let latitude: Double
     let longitude: Double

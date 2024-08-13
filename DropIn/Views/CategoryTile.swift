@@ -16,6 +16,10 @@ struct CategoryTile: View {
                 Text(category.name)
                     .font(.headline)
                     .foregroundColor(Color("PrimaryTextColor"))
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 2)
                 Spacer()
             }
             .frame(width: 100, height: 100)

@@ -2,10 +2,12 @@ import SwiftUI
 
 struct CategoryLocationsView: View {
     @EnvironmentObject var userState: UserState
+    @EnvironmentObject var appState: AppState
     var category: Category
     var onClose: () -> Void
     @State private var editedLocation: Location?
     @State private var showAlert = false
+    @State private var selectedLocations = Set<Location>()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -39,7 +41,7 @@ struct CategoryLocationsView: View {
                 if let locations = userState.user?.locations.filter({ $0.category?.id == category.id }), !locations.isEmpty {
                     Divider().background(Color.gray)
                     ForEach(locations) { location in
-                        LocationListItem(location: location, showEditNamePopup: $editedLocation)
+                        LocationListItem(location: location, showEditNamePopup: $editedLocation, isSelectable: appState.isSelectable, selectedLocations: $selectedLocations)
                             .environmentObject(userState)
                     }
                 } else {

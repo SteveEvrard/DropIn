@@ -76,3 +76,56 @@ func openInGoogleMaps(coordinate: CLLocationCoordinate2D) {
         }
     }
 }
+
+func createKMLFile(from locations: Set<Location>) -> URL? {
+    let kmlHeader = """
+    <?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://www.opengis.net/kml/2.2">
+    <Document>
+    """
+    
+    let kmlFooter = """
+    </Document>
+    </kml>
+    """
+    
+    var kmlBody = ""
+    
+    for location in locations {
+        let placemark = """
+        <Placemark>
+            <name>\(location.name)</name>
+            <description>\(location.description ?? "")</description>
+            <Point>
+                <coordinates>\(location.longitude),\(location.latitude),0</coordinates>
+            </Point>
+        </Placemark>
+        """
+        kmlBody += placemark
+    }
+    
+    let kmlContent = kmlHeader + kmlBody + kmlFooter
+    
+    let fileName = "locations.kml"
+    if let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        do {
+            try kmlContent.data(using: .utf8)?.write(to: fileURL)
+            return fileURL
+        } catch {
+            print("Error writing KML file: \(error)")
+        }
+    }
+    
+    return nil
+}
+
+func shareKMLFile(from locations: Set<Location>, in viewController: UIViewController) {
+    guard let kmlFileURL = createKMLFile(from: locations) else { return }
+
+    let activityViewController = UIActivityViewController(activityItems: [kmlFileURL], applicationActivities: nil)
+    
+    activityViewController.excludedActivityTypes = [.assignToContact, .saveToCameraRoll, .addToReadingList]
+    
+    viewController.present(activityViewController, animated: true, completion: nil)
+}

@@ -5,6 +5,8 @@ struct LocationListItem: View {
     @EnvironmentObject var userState: UserState
     var location: Location
     @Binding var showEditNamePopup: Location?
+    var isSelectable: Bool
+    @Binding var selectedLocations: Set<Location>
     
     @State private var showAlert = false
     @State private var isExpanded = false
@@ -14,6 +16,19 @@ struct LocationListItem: View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
                 HStack {
+                    if isSelectable {
+                        Button(action: {
+                            if selectedLocations.contains(location) {
+                                selectedLocations.remove(location)
+                            } else {
+                                selectedLocations.insert(location)
+                            }
+                        }) {
+                            Image(systemName: selectedLocations.contains(location) ? "checkmark.circle.fill" : "circle")
+                                .foregroundColor(Color("ButtonColor"))
+                                .font(.title2)
+                        }
+                    }
                     VStack(alignment: .leading) {
                         Text(location.name)
                             .foregroundColor(Color("PrimaryTextColor"))
