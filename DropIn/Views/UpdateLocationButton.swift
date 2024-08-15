@@ -2,18 +2,31 @@ import SwiftUI
 import CoreLocation
 
 struct UpdateLocationButton: View {
+    @EnvironmentObject var userState: UserState
     var location: Location
-    var onUpdate: () -> Void
 
     var body: some View {
         if location.fullAddress == "Unknown" {
-            Button(action: onUpdate) {
+            Button(action: {
+                updateLocationDetails()
+            }) {
                 Image(systemName: "arrow.triangle.2.circlepath")
                     .foregroundColor(Color("ButtonColor"))
-                    .padding(10)
                     .background(Color("ButtonBackgroundColor"))
                     .clipShape(Circle())
-                    .shadow(radius: 5)
+            }
+        }
+    }
+    
+    private func updateLocationDetails() {
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        
+        GetLocationManager.shared.fetchLocationDetails(for: clLocation) { newLocation in
+            guard var user = userState.user else { return }
+            
+            if let index = user.locations.firstIndex(where: { $0.id == location.id }) {
+                user.locations[index] = newLocation
+                userState.saveUser(user: user)
             }
         }
     }

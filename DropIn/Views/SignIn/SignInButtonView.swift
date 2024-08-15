@@ -11,9 +11,3 @@ struct SignInButtonView: View {
         .padding(.horizontal, 16)
     }
 }
-
-struct SignInButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInButtonView()
-    }
-}

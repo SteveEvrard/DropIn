@@ -10,6 +10,9 @@
 		7303C8032C2DA53400E0815E /* MapPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7303C8022C2DA53400E0815E /* MapPreviewView.swift */; };
 		73096D5D2C6C023B00790EBD /* SiriPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73096D5C2C6C023B00790EBD /* SiriPopupView.swift */; };
 		730E6A502C11FE7C009D0DE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */; };
+		732F9DD12C6E250600D65EDC /* EmailSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */; };
+		732F9DD32C6E302B00D65EDC /* EmailSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */; };
+		732F9DD52C6E334400D65EDC /* EmailSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD42C6E334400D65EDC /* EmailSignInView.swift */; };
 		734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E652C120C73003B96D1 /* FirebaseAuth */; };
 		734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E672C120C73003B96D1 /* FirebaseFirestore */; };
 		734A9E6A2C122AAE003B96D1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E692C122AAE003B96D1 /* SignInView.swift */; };
@@ -91,6 +94,9 @@
 		7303C8022C2DA53400E0815E /* MapPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewView.swift; sourceTree = "<group>"; };
 		73096D5C2C6C023B00790EBD /* SiriPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriPopupView.swift; sourceTree = "<group>"; };
 		730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpView.swift; sourceTree = "<group>"; };
+		732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInManager.swift; sourceTree = "<group>"; };
+		732F9DD42C6E334400D65EDC /* EmailSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInView.swift; sourceTree = "<group>"; };
 		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
 		734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtonView.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */,
 				73F3180B2C1349C900583C4D /* AuthManager.swift */,
 				73F3181B2C19F10000583C4D /* UserManager.swift */,
+				732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -304,6 +311,8 @@
 				737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */,
 				73FEFDF42C591AC800229F17 /* SaveKMLButton.swift */,
 				73096D5C2C6C023B00790EBD /* SiriPopupView.swift */,
+				732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */,
+				732F9DD42C6E334400D65EDC /* EmailSignInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,18 +507,21 @@
 				734A9E712C122C07003B96D1 /* AppleSignInButtonView.swift in Sources */,
 				73CEEEA62C01344400B11F42 /* Location.swift in Sources */,
 				73F3181A2C19F01A00583C4D /* UserState.swift in Sources */,
+				732F9DD52C6E334400D65EDC /* EmailSignInView.swift in Sources */,
 				73F3182C2C29C2D200583C4D /* AddCategoryView.swift in Sources */,
 				73CEE9C32C2A230100D9074F /* CustomTextField.swift in Sources */,
 				734A9E6C2C122AF5003B96D1 /* SignInButtonView.swift in Sources */,
 				734A9E7B2C123CB3003B96D1 /* Color.swift in Sources */,
 				73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */,
 				73F318142C1351A100583C4D /* GetLocationIntent.swift in Sources */,
+				732F9DD32C6E302B00D65EDC /* EmailSignInManager.swift in Sources */,
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
 				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
 				737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
 				737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */,
 				73096D5D2C6C023B00790EBD /* SiriPopupView.swift in Sources */,
+				732F9DD12C6E250600D65EDC /* EmailSignUpView.swift in Sources */,
 				73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */,
 				73F3182A2C29BDF700583C4D /* Category.swift in Sources */,
 				73F3181C2C19F10000583C4D /* UserManager.swift in Sources */,
@@ -674,7 +686,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -719,7 +731,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

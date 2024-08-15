@@ -1,9 +1,11 @@
 import SwiftUI
 
 struct EmailSignInButtonView: View {
+    @State private var showSignUp = false
+    
     var body: some View {
         Button(action: {
-            // Handle Email Sign-In
+            showSignUp.toggle()
         }) {
             HStack {
                 Image(systemName: "envelope")
@@ -15,11 +17,8 @@ struct EmailSignInButtonView: View {
             .foregroundColor(.buttonTextColor)
             .cornerRadius(8)
         }
-    }
-}
-
-struct SignInWithEmailButton_Previews: PreviewProvider {
-    static var previews: some View {
-        EmailSignInButtonView()
+        .sheet(isPresented: $showSignUp) {
+            EmailSignUpView()
+        }
     }
 }

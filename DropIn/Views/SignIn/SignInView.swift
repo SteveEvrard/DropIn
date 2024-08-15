@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SignInView: View {
+    @State private var showEmailSignIn = false
+
     var body: some View {
         VStack {
             Spacer()
@@ -25,7 +27,7 @@ struct SignInView: View {
                 Text("Already have an account?")
                     .foregroundColor(.secondaryTextColor)
                 Button(action: {
-                    // Navigate to login view
+                    showEmailSignIn = true
                 }) {
                     Text("Log in")
                         .foregroundColor(.accentColor)
@@ -35,11 +37,8 @@ struct SignInView: View {
             .padding(.bottom, 20)
         }
         .background(Color.backgroundColor.edgesIgnoringSafeArea(.all))
-    }
-}
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
+        .sheet(isPresented: $showEmailSignIn) {
+            EmailSignInView()
+        }
     }
 }

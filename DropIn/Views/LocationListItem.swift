@@ -37,6 +37,8 @@ struct LocationListItem: View {
                             .foregroundColor(Color("SecondaryTextColor"))
                     }
                     Spacer()
+                    UpdateLocationButton(location: location)
+                        .environmentObject(userState)
                     if let category = location.category {
                         Image(systemName: category.icon)
                             .foregroundColor(Color("ButtonColor"))

@@ -3,7 +3,7 @@ import Combine
 import Firebase
 
 class UserState: ObservableObject {
-    static let shared = UserState() // Singleton instance
+    static let shared = UserState()
     
     @Published var user: User?
 

@@ -47,14 +47,14 @@ class GetLocationManager {
         let state = placemark.administrativeArea ?? ""
         let cityState = "\(city), \(state)"
         let zipCode = placemark.postalCode
-        let defaultName = streetAddress
+        let defaultName = streetAddress == "" ? "N/A" : streetAddress
 
         return (fullAddress, streetAddress, cityState, zipCode, defaultName)
     }
 
     private func saveLocationsToUserDefaults(_ locations: [Location]) {
         if let data = try? JSONEncoder().encode(locations) {
-            UserDefaults.standard.set(data, forKey: GetLocationManager.locationsKey)
+            UserDefaults.standard.set(data, forKey: Self.locationsKey)
         }
     }
     
@@ -98,12 +98,6 @@ class GetLocationManager {
         }
     }
 
-    private static func saveLocations(_ locations: [Location]) {
-        if let data = try? JSONEncoder().encode(locations) {
-            UserDefaults.standard.set(data, forKey: Self.locationsKey)
-        }
-    }
-
     func formatAddress(from placemark: CLPlacemark) -> String {
         var addressString = ""
         if let subThoroughfare = placemark.subThoroughfare {
@@ -124,7 +118,7 @@ class GetLocationManager {
         if let country = placemark.country {
             addressString += country
         }
-        return addressString.trimmingCharacters(in: .whitespacesAndNewlines)
+        return addressString != "" ? addressString.trimmingCharacters(in: .whitespacesAndNewlines) : "N/A"
     }
     
     func formatStreetAddress(from placemark: CLPlacemark) -> String {
@@ -135,7 +129,7 @@ class GetLocationManager {
         if let thoroughfare = placemark.thoroughfare {
             streetAddress += thoroughfare
         }
-        return streetAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+        return streetAddress != "" ? streetAddress.trimmingCharacters(in: .whitespacesAndNewlines) : "N/A"
     }
 
     func loadSavedLocalLocations() {
