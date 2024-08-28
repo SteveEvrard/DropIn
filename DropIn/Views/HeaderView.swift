@@ -4,17 +4,22 @@ import FirebaseAuth
 struct HeaderView: View {
     @EnvironmentObject var appState: AppState
     @Binding var isListView: Bool
-    @State private var showSignOutAlert = false
+    @State private var showProfileView = false
 
     var body: some View {
         HStack {
             Button(action: {
-                showSignOutAlert = true
+                showProfileView = true
             }) {
                 Image(systemName: "person.crop.circle.fill")
                     .imageScale(.medium)
                     .foregroundColor(Color("ButtonColor"))
                     .font(.title2)
+            }
+            .sheet(isPresented: $showProfileView) {
+                ProfileView()
+                    .environmentObject(appState)
+                    .environmentObject(UserState.shared)
             }
             Text("DropIn")
                 .font(.title)
@@ -39,16 +44,6 @@ struct HeaderView: View {
                         .cornerRadius(isListView ? 8 : 0)
                         .cornerRadius(isListView ? 8 : 0, corners: [.topLeft, .bottomLeft])
                 }
-                .alert(isPresented: $showSignOutAlert) {
-                    Alert(
-                        title: Text("Sign Out"),
-                        message: Text("Are you sure you want to sign out?"),
-                        primaryButton: .destructive(Text("Sign Out")) {
-                            signOut()
-                        },
-                        secondaryButton: .cancel()
-                    )
-                }
                 Button(action: {
                     isListView = false
                     appState.isSelectable = false
@@ -69,17 +64,6 @@ struct HeaderView: View {
         .background(Color("BackgroundColor"))
         .frame(maxWidth: .infinity, alignment: .leading)
         .zIndex(1)
-    }
-    
-    private func signOut() {
-        AuthManager.shared.signOut { result in
-            switch result {
-            case .success():
-                appState.updateAuthenticationState()
-            case .failure(let error):
-                print("Failed to sign out: \(error.localizedDescription)")
-            }
-        }
     }
 }
 

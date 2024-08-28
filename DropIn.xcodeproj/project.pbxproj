@@ -26,6 +26,7 @@
 		734A9E7E2C12601B003B96D1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E7D2C12601B003B96D1 /* GoogleSignIn */; };
 		734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */; };
 		734A9E822C134340003B96D1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E812C134340003B96D1 /* AppState.swift */; };
+		73591D7E2C75503400649E64 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73591D7D2C75503400649E64 /* ProfileView.swift */; };
 		736458712C2F5E0900B10318 /* SaveLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736458702C2F5E0900B10318 /* SaveLocationButton.swift */; };
 		737148272BED72DB00676E63 /* DropInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148262BED72DB00676E63 /* DropInApp.swift */; };
 		737148292BED72DB00676E63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148282BED72DB00676E63 /* ContentView.swift */; };
@@ -97,6 +98,7 @@
 		732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignUpView.swift; sourceTree = "<group>"; };
 		732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInManager.swift; sourceTree = "<group>"; };
 		732F9DD42C6E334400D65EDC /* EmailSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInView.swift; sourceTree = "<group>"; };
+		732F9DD62C6E5C3400D65EDC /* DropInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DropInDebug.entitlements; sourceTree = "<group>"; };
 		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
 		734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtonView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		734A9E7A2C123CB3003B96D1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		734A9E7F2C126056003B96D1 /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
 		734A9E812C134340003B96D1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		73591D7D2C75503400649E64 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		736458702C2F5E0900B10318 /* SaveLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationButton.swift; sourceTree = "<group>"; };
 		737148232BED72DB00676E63 /* DropIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737148262BED72DB00676E63 /* DropInApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInApp.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 		737148252BED72DB00676E63 /* DropIn */ = {
 			isa = PBXGroup;
 			children = (
+				732F9DD62C6E5C3400D65EDC /* DropInDebug.entitlements */,
 				737148552BED7AEA00676E63 /* Info.plist */,
 				730E6A4F2C11FE7C009D0DE3 /* GoogleService-Info.plist */,
 				737148262BED72DB00676E63 /* DropInApp.swift */,
@@ -313,6 +317,7 @@
 				73096D5C2C6C023B00790EBD /* SiriPopupView.swift */,
 				732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */,
 				732F9DD42C6E334400D65EDC /* EmailSignInView.swift */,
+				73591D7D2C75503400649E64 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				73F318282C29B7A200583C4D /* CategoryTile.swift in Sources */,
 				73FEFDF52C591AC800229F17 /* SaveKMLButton.swift in Sources */,
 				7303C8032C2DA53400E0815E /* MapPreviewView.swift in Sources */,
+				73591D7E2C75503400649E64 /* ProfileView.swift in Sources */,
 				734A9E802C126056003B96D1 /* GoogleSignInManager.swift in Sources */,
 				734A9E6F2C122BE8003B96D1 /* GoogleSignInButtonView.swift in Sources */,
 				73F318172C19EF9500583C4D /* User.swift in Sources */,
@@ -683,10 +689,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DropIn/DropInDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -731,7 +737,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -1,10 +1,3 @@
-//
-//  UserManager.swift
-//  DropIn
-//
-//  Created by Stephen Evrard on 6/12/24.
-//
-
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
@@ -64,5 +57,18 @@ class UserManager {
         }
         .eraseToAnyPublisher()
     }
-}
 
+    func deleteUser(userId: String) -> AnyPublisher<Void, Error> {
+        Future { promise in
+            let docRef = self.db.collection("users").document(userId)
+            docRef.delete { error in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(()))
+                }
+            }
+        }
+        .eraseToAnyPublisher()
+    }
+}
