@@ -38,6 +38,8 @@
 		737148542BED74A800676E63 /* GetLocationShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737148532BED74A800676E63 /* GetLocationShortcut.swift */; };
 		737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */; };
 		737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */; };
+		73C004122C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C004112C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift */; };
+		73C004142C7F7ABA00355DF9 /* VoiceTranscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C004132C7F7ABA00355DF9 /* VoiceTranscriptionManager.swift */; };
 		73C4573B2C344E5000AC8FEF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C4573A2C344E5000AC8FEF /* ToastView.swift */; };
 		73CEE9C12C29E4E000D9074F /* CategoryLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */; };
 		73CEE9C32C2A230100D9074F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEE9C22C2A230100D9074F /* CustomTextField.swift */; };
@@ -126,6 +128,8 @@
 		737148552BED7AEA00676E63 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
 		737461BD2C4FE59500AFCD5E /* UpdateLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationButton.swift; sourceTree = "<group>"; };
 		737461BF2C503D8000AFCD5E /* ExpandedLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedLocationView.swift; sourceTree = "<group>"; };
+		73C004112C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTranscriptionButton.swift; sourceTree = "<group>"; };
+		73C004132C7F7ABA00355DF9 /* VoiceTranscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceTranscriptionManager.swift; sourceTree = "<group>"; };
 		73C4573A2C344E5000AC8FEF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		73CEE9C02C29E4E000D9074F /* CategoryLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLocationsView.swift; sourceTree = "<group>"; };
 		73CEE9C22C2A230100D9074F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				73F3180B2C1349C900583C4D /* AuthManager.swift */,
 				73F3181B2C19F10000583C4D /* UserManager.swift */,
 				732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */,
+				73C004132C7F7ABA00355DF9 /* VoiceTranscriptionManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 		73F318112C13509600583C4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				73C004112C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift */,
 				73F318122C1350B200583C4D /* SignIn */,
 				73F3180D2C134B9500583C4D /* MainView.swift */,
 				737148282BED72DB00676E63 /* ContentView.swift */,
@@ -518,7 +524,9 @@
 				73CEE9C32C2A230100D9074F /* CustomTextField.swift in Sources */,
 				734A9E6C2C122AF5003B96D1 /* SignInButtonView.swift in Sources */,
 				734A9E7B2C123CB3003B96D1 /* Color.swift in Sources */,
+				73C004122C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift in Sources */,
 				73CEEEA22BF3BF5400B11F42 /* UserLocationManager.swift in Sources */,
+				73C004142C7F7ABA00355DF9 /* VoiceTranscriptionManager.swift in Sources */,
 				73F318142C1351A100583C4D /* GetLocationIntent.swift in Sources */,
 				732F9DD32C6E302B00D65EDC /* EmailSignInManager.swift in Sources */,
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,

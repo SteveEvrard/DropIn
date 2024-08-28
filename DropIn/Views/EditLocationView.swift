@@ -5,6 +5,7 @@ struct EditLocationView: View {
     @EnvironmentObject var userState: UserState
     var onSave: () -> Void
     var onCancel: () -> Void
+    @ObservedObject private var transcriptionManager = VoiceTranscriptionManager.shared
 
     var body: some View {
         VStack(spacing: 20) {
@@ -72,16 +73,23 @@ struct EditLocationView: View {
                     .font(.subheadline)
                     .foregroundColor(Color("PrimaryTextColor"))
 
-                CustomTextField(
-                    placeholder: Text("Enter notes").foregroundColor(Color("SecondaryTextColor")),
-                    text: Binding(
-                        get: { location.description ?? "" },
-                        set: { location.description = $0.isEmpty ? "" : $0 }
+                HStack {
+                    CustomTextField(
+                        placeholder: Text("Enter notes").foregroundColor(Color("SecondaryTextColor")),
+                        text: Binding(
+                            get: { location.description ?? "" },
+                            set: { location.description = $0.isEmpty ? "" : $0 }
+                        )
                     )
-                )
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(8)
+                    
+                    VoiceTranscriptionButton(notes: Binding(
+                        get: { location.description ?? "" },
+                        set: { location.description = $0 }
+                    ))
+                }
             }
 
             Button(action: onSave) {
@@ -97,5 +105,8 @@ struct EditLocationView: View {
         .background(Color("BackgroundColor"))
         .cornerRadius(12)
         .padding()
+        .onDisappear {
+            transcriptionManager.stopRecording()
+        }
     }
 }

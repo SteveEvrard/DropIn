@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentListView: View {
     @EnvironmentObject var userState: UserState
     @EnvironmentObject var appState: AppState
+    @ObservedObject private var transcriptionManager = VoiceTranscriptionManager.shared
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var userLocationManager = UserLocationManager()
     @State private var editedLocation: Location?
@@ -99,10 +100,12 @@ struct ContentListView: View {
                                 set: { self.editedLocation = $0 }
                             ),
                             onSave: {
+                                transcriptionManager.stopRecording()
                                 updateLocation(for: location)
                                 self.editedLocation = nil
                             },
                             onCancel: {
+                                transcriptionManager.stopRecording()
                                 self.editedLocation = nil
                             }
                         )
