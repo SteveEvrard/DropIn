@@ -13,6 +13,7 @@
 		732F9DD12C6E250600D65EDC /* EmailSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */; };
 		732F9DD32C6E302B00D65EDC /* EmailSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */; };
 		732F9DD52C6E334400D65EDC /* EmailSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F9DD42C6E334400D65EDC /* EmailSignInView.swift */; };
+		73338B4C2C875DCC00641895 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73338B4B2C875DCC00641895 /* CarPlaySceneDelegate.swift */; };
 		734A9E662C120C73003B96D1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E652C120C73003B96D1 /* FirebaseAuth */; };
 		734A9E682C120C73003B96D1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 734A9E672C120C73003B96D1 /* FirebaseFirestore */; };
 		734A9E6A2C122AAE003B96D1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A9E692C122AAE003B96D1 /* SignInView.swift */; };
@@ -101,6 +102,7 @@
 		732F9DD22C6E302B00D65EDC /* EmailSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInManager.swift; sourceTree = "<group>"; };
 		732F9DD42C6E334400D65EDC /* EmailSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSignInView.swift; sourceTree = "<group>"; };
 		732F9DD62C6E5C3400D65EDC /* DropInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DropInDebug.entitlements; sourceTree = "<group>"; };
+		73338B4B2C875DCC00641895 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		734A9E692C122AAE003B96D1 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		734A9E6B2C122AF5003B96D1 /* SignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButtonView.swift; sourceTree = "<group>"; };
 		734A9E6E2C122BE8003B96D1 /* GoogleSignInButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButtonView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73338B4A2C875DB200641895 /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+				73338B4B2C875DCC00641895 /* CarPlaySceneDelegate.swift */,
+			);
+			path = CarPlay;
+			sourceTree = "<group>";
+		};
 		734A9E642C120C73003B96D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +264,7 @@
 				7371482D2BED72DD00676E63 /* Preview Content */,
 				7371482C2BED72DD00676E63 /* DropIn.entitlements */,
 				73F318182C19F00E00583C4D /* States */,
+				73338B4A2C875DB200641895 /* CarPlay */,
 				73F318152C19EF7C00583C4D /* Models */,
 				73F318112C13509600583C4D /* Views */,
 				73F3180F2C13507F00583C4D /* GetLocation */,
@@ -301,7 +312,6 @@
 		73F318112C13509600583C4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				73C004112C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift */,
 				73F318122C1350B200583C4D /* SignIn */,
 				73F3180D2C134B9500583C4D /* MainView.swift */,
 				737148282BED72DB00676E63 /* ContentView.swift */,
@@ -324,6 +334,7 @@
 				732F9DD02C6E250600D65EDC /* EmailSignUpView.swift */,
 				732F9DD42C6E334400D65EDC /* EmailSignInView.swift */,
 				73591D7D2C75503400649E64 /* ProfileView.swift */,
+				73C004112C7F7A8D00355DF9 /* VoiceTranscriptionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -531,6 +542,7 @@
 				732F9DD32C6E302B00D65EDC /* EmailSignInManager.swift in Sources */,
 				73CEEEA42BF3BF7400B11F42 /* GetLocationManager.swift in Sources */,
 				734A9E752C122C35003B96D1 /* AppleSignInManager.swift in Sources */,
+				73338B4C2C875DCC00641895 /* CarPlaySceneDelegate.swift in Sources */,
 				737461C02C503D8000AFCD5E /* ExpandedLocationView.swift in Sources */,
 				737148292BED72DB00676E63 /* ContentView.swift in Sources */,
 				737461BE2C4FE59500AFCD5E /* UpdateLocationButton.swift in Sources */,
@@ -700,7 +712,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropInDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -710,8 +722,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to save and display your current location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save and display your current location.";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = NO;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
@@ -720,6 +732,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -745,7 +758,7 @@
 				CODE_SIGN_ENTITLEMENTS = DropIn/DropIn.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_ASSET_PATHS = "\"DropIn/Preview Content\"";
 				DEVELOPMENT_TEAM = PBKGP9K9Z9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -755,8 +768,8 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to save and display your current location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to save and display your current location.";
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = NO;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = NO;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
@@ -765,6 +778,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
