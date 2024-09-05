@@ -18,14 +18,14 @@ class GetLocationManager {
         }
     }
 
-    func fetchLocationDetails(for location: CLLocation, completion: @escaping (Location) -> Void) {
+    func fetchLocationDetails(for location: CLLocation, date: Date? = nil, completion: @escaping (Location) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             let (fullAddress, streetAddress, cityState, zipCode, defaultName) = self.formatLocationDetails(from: placemarks, error: error)
             let newLocation = Location(
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude,
-                date: Date(),
+                date: date ?? Date(),
                 name: defaultName ?? "Unknown",
                 fullAddress: fullAddress ?? "Unknown",
                 streetAddress: streetAddress ?? "Unknown",
@@ -35,6 +35,7 @@ class GetLocationManager {
             completion(newLocation)
         }
     }
+
 
     private func formatLocationDetails(from placemarks: [CLPlacemark]?, error: Error?) -> (String?, String?, String?, String?, String?) {
         guard let placemark = placemarks?.first, error == nil else {

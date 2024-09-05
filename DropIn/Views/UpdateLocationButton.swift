@@ -21,7 +21,7 @@ struct UpdateLocationButton: View {
     private func updateLocationDetails() {
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         
-        GetLocationManager.shared.fetchLocationDetails(for: clLocation) { newLocation in
+        GetLocationManager.shared.fetchLocationDetails(for: clLocation, date: location.date) { newLocation in
             guard var user = userState.user else { return }
             
             if let index = user.locations.firstIndex(where: { $0.id == location.id }) {
