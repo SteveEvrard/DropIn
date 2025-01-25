@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .contact-container h1 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .contact-info span {
+      font-weight: bold;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <p>If you have any questions or need support, please reach out to us!</p>
+      <p>
+        <span>Email:</span> 
+        <a href="mailto:matthew@matthewpklein.com">matthew@matthewpklein.com</a>
+      </p>
+      <p>
+        <span>Phone:</span> 
+        <a href="tel:+14403082493">+1 (440) 308-2493</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
