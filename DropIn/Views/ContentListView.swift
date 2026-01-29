@@ -66,7 +66,7 @@ struct ContentListView: View {
                     Button(action: {
                         userLocationManager.requestLocationAccess()
                     }) {
-                        Text("Allow Location Access")
+                        Text("Continue to Enable Location")
                             .foregroundColor(Color("ButtonTextColor"))
                             .padding()
                             .background(Color("ButtonColor"))

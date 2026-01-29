@@ -4,10 +4,12 @@ import Firebase
 struct ProfileView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var userState: UserState
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
     @Environment(\.presentationMode) var presentationMode
 
     @State private var showAlert = false
     @State private var isDeletingAccount = false
+    @State private var isRestoringPurchases = false
 
     var body: some View {
         NavigationView {
@@ -16,6 +18,41 @@ struct ProfileView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color("PrimaryTextColor"))
+                
+                VStack(spacing: 12) {
+                    Button(action: {
+                        if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
+                            UIApplication.shared.open(url)
+                        }
+                    }) {
+                        Text("Manage Subscription")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color("ButtonColor").opacity(0.15))
+                            .foregroundColor(Color("ButtonColor"))
+                            .cornerRadius(8)
+                    }
+                    
+                    Button(action: {
+                        isRestoringPurchases = true
+                        Task {
+                            await subscriptionManager.restorePurchases()
+                            isRestoringPurchases = false
+                        }
+                    }) {
+                        Text(isRestoringPurchases ? "Restoring..." : "Restore Purchases")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color("ButtonColor").opacity(0.15))
+                            .foregroundColor(Color("ButtonColor"))
+                            .cornerRadius(8)
+                    }
+                    .disabled(isRestoringPurchases)
+                    
+                    Text(subscriptionManager.hasActiveEntitlement ? "Subscription: Active" : "Subscription: Inactive")
+                        .foregroundColor(Color("SecondaryTextColor"))
+                        .font(.subheadline)
+                }
 
                 Button(action: {
                     signOut()

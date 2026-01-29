@@ -3,6 +3,7 @@ import FirebaseAuth
 
 struct HeaderView: View {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var subscriptionManager: SubscriptionManager
     @Binding var isListView: Bool
     @State private var showProfileView = false
 
@@ -20,6 +21,7 @@ struct HeaderView: View {
                 ProfileView()
                     .environmentObject(appState)
                     .environmentObject(UserState.shared)
+                    .environmentObject(subscriptionManager)
             }
             Text("DropIn")
                 .font(.title)

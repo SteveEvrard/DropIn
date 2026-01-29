@@ -1,5 +1,6 @@
 import CarPlay
 import UIKit
+import FirebaseAuth
 
 class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     var interfaceController: CPInterfaceController?
@@ -33,8 +34,21 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
 
     /// Handles the action of saving the current location.
     private func handleSaveLocation() {
-        // Implement the location saving logic directly, similar to the SaveLocationButton
-        fetchAndSaveLocation()
+        Task { @MainActor in
+            guard Auth.auth().currentUser != nil else {
+                showMessage(title: "Sign in required", message: "Open DropIn on your iPhone and sign in to save locations.")
+                return
+            }
+            
+            let entitled = await SubscriptionEntitlementChecker.isEntitledNow()
+            guard entitled else {
+                showMessage(title: "Subscription required", message: "A DropIn subscription is required. Open the app to start your 7‑day free trial.")
+                return
+            }
+            
+            // Implement the location saving logic directly, similar to the SaveLocationButton
+            fetchAndSaveLocation()
+        }
     }
 
     /// Fetches the current location and saves it.
@@ -69,5 +83,12 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                 print("Failed to set root template: \(error.localizedDescription)")
             }
         })
+    }
+    
+    private func showMessage(title: String, message: String) {
+        let action = CPAlertAction(title: "OK", style: .default) { _ in }
+        let combinedTitle = "\(title)\n\(message)"
+        let alert = CPAlertTemplate(titleVariants: [combinedTitle], actions: [action])
+        interfaceController?.presentTemplate(alert, animated: true, completion: nil)
     }
 }
