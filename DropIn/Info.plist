@@ -38,6 +38,10 @@
 	<string>DropIn uses your location to track and save precise locations for navigation and review.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>DropIn uses your location to track and save precise locations for navigation and review.</string>
+	<key>DROPIN_PRIVACY_POLICY_URL</key>
+	<string>https://steveevrard.github.io/DropIn/</string>
+	<key>DROPIN_TERMS_OF_USE_URL</key>
+	<string>https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

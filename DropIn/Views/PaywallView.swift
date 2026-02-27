@@ -8,15 +8,15 @@ struct PaywallView: View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
             
-            VStack(spacing: 16) {
+            VStack(spacing: 12) {
                 Spacer()
                 
                 Image(systemName: "sparkles")
                     .font(.system(size: 54, weight: .semibold))
                     .foregroundColor(Color("ButtonColor"))
-                    .padding(.bottom, 8)
+                    .padding(.bottom, 4)
                 
-                Text("DropIn Pro")
+                Text("DropIn")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color("PrimaryTextColor"))
@@ -38,65 +38,86 @@ struct PaywallView: View {
                 
                 if subscriptionManager.isLoading {
                     ProgressView()
-                        .padding(.bottom, 8)
-                } else {
-                    if let product = subscriptionManager.primaryProduct {
-                        Text(primaryOfferText(for: product))
-                            .foregroundColor(Color("SecondaryTextColor"))
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 24)
-                        
-                        Button {
-                            Task { await subscriptionManager.purchase(product) }
-                        } label: {
-                            Text(primaryButtonTitle(for: product))
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color("ButtonColor"))
-                                .foregroundColor(.white)
-                                .cornerRadius(12)
-                        }
+                        .padding(.bottom, 12)
+                } else if let product = subscriptionManager.primaryProduct {
+                    Text(primaryOfferText(for: product))
+                        .foregroundColor(Color("SecondaryTextColor"))
+                        .multilineTextAlignment(.center)
                         .padding(.horizontal, 24)
-                        
-                    } else {
-                        Text("Subscription options are unavailable right now.")
-                            .foregroundColor(Color("SecondaryTextColor"))
-                            .padding(.horizontal, 24)
+                        .padding(.top, 4)
+                    
+                    Text("Cancel anytime in Settings > Subscriptions before the trial ends to avoid charges.")
+                        .foregroundColor(Color("SecondaryTextColor"))
+                        .font(.footnote)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
+                    
+                    // Custom purchase button so the label can be styled/centered like Restore.
+                    Button {
+                        Task { await subscriptionManager.purchase(product) }
+                    } label: {
+                        Text(customPurchaseButtonTitle(for: product))
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, minHeight: 56)
+                            .padding(.horizontal, 16)
+                            .background(Color("ButtonColor"))
+                            .cornerRadius(28)
                     }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 10)
+                    
+                    Button {
+                        Task { await subscriptionManager.restorePurchases() }
+                    } label: {
+                        Text("Restore Subscription")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color("PrimaryTextColor"))
+                            .frame(maxWidth: .infinity, minHeight: 56)
+                            .padding(.horizontal, 16)
+                            .background(Color.white.opacity(0.75))
+                            .cornerRadius(28)
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    HStack(spacing: 18) {
+                        if let termsURL = AppPolicyURLs.termsOfUse {
+                            Link("Terms of Service", destination: termsURL)
+                        } else {
+                            Link("Terms of Service", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                        }
+                        
+                        if let privacyURL = AppPolicyURLs.privacyPolicy {
+                            Link("Privacy Policy", destination: privacyURL)
+                        } else {
+                            Link("Privacy Policy", destination: URL(string: "https://steveevrard.github.io/DropIn/")!)
+                        }
+                    }
+                    .font(.footnote)
+                    .foregroundColor(Color("ButtonColor"))
+                    .padding(.top, 10)
+                    .padding(.bottom, 18)
+                    
+                } else {
+                    Text("Subscription options are unavailable right now.")
+                        .foregroundColor(Color("SecondaryTextColor"))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
                 }
                 
                 if let error = subscriptionManager.lastErrorMessage {
                     Text(error)
                         .foregroundColor(.red)
-                        .font(.subheadline)
+                        .font(.footnote)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 24)
                 }
-                
-                HStack(spacing: 16) {
-                    Button {
-                        Task { await subscriptionManager.restorePurchases() }
-                    } label: {
-                        Text("Restore Purchases")
-                            .fontWeight(.semibold)
-                    }
-                    
-                    Button {
-                        if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        Text("Manage")
-                            .fontWeight(.semibold)
-                    }
-                }
-                .foregroundColor(Color("ButtonColor"))
-                .padding(.bottom, 24)
             }
         }
         .task {
-            // Ensure we refresh when the paywall appears.
-            await subscriptionManager.refreshEntitlements()
+            // Needed for dynamic “trial then price” messaging and the custom purchase button.
             if subscriptionManager.products.isEmpty {
                 await subscriptionManager.loadProducts()
             }
@@ -118,6 +139,14 @@ struct PaywallView: View {
         }
         
         return "\(priceText) until canceled."
+    }
+    
+    private func customPurchaseButtonTitle(for product: Product) -> String {
+        // Match the kind of label the user is seeing from StoreKit, but with our own styling.
+        if let trial = introTrialText(for: product) {
+            return "\(trial), then \(pricePerPeriodText(for: product) ?? product.displayPrice)"
+        }
+        return "Subscribe \(pricePerPeriodText(for: product) ?? product.displayPrice)"
     }
     
     private func introTrialText(for product: Product) -> String? {

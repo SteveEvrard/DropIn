@@ -3,6 +3,23 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
+enum AppPolicyURLs {
+    static var privacyPolicy: URL? {
+        url(forInfoPlistKey: "DROPIN_PRIVACY_POLICY_URL")
+    }
+    
+    static var termsOfUse: URL? {
+        url(forInfoPlistKey: "DROPIN_TERMS_OF_USE_URL")
+    }
+    
+    private static func url(forInfoPlistKey key: String) -> URL? {
+        guard let raw = Bundle.main.object(forInfoDictionaryKey: key) as? String else { return nil }
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return nil }
+        return URL(string: trimmed)
+    }
+}
+
 func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
     let charset: [Character] =
